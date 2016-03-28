@@ -1,0 +1,93 @@
+<!-- 
+
+制作一个表格，显示班级的学生信息。
+
+要求：
+
+* 鼠标移到不同行上时背景色改为色值为#f2f2f2，移开鼠标时则恢复为原背景色 #fff
+* 点击添加按钮，能动态在最后添加一行
+* 点击删除按钮，则删除当前行 
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>班级学生信息增删</title>
+</head>
+<body>
+	<table border="1" width="50%" >
+		<thead>
+			<th>班级</th>
+			<th>姓名</th>
+			<th>操作</th>
+		</thead>
+		<tbody id="tbody" width="20%">
+<!-- 			<tr>
+				<td>A001</td>
+				<td>张三</td>
+				<td><a href="javascript:;" onclick="delRow(this)">删除</a></td>
+			</tr>
+			<tr>
+				<td>A002</td>
+				<td>李四</td>
+				<td><a href="javascript:;" onclick="delRow(this)">删除</a></td>
+			</tr> -->
+		</tbody>
+	</table>
+	<input type="button" value="增加" onclick="addRow()" ></input>
+
+	<script type="text/javascript">
+		// 改变背景颜色
+		function highLight(){
+			var trs = document.getElementsByTagName("tr");
+			for(var i=1; i<trs.length; i++){
+				trs[i].onmouseover = function(){
+					this.style.backgroundColor="#CCC";
+				}
+				trs[i].onmouseout = function(){
+					this.style.backgroundColor="#FFF";
+				}
+			}
+		}
+
+		// 增加一行
+		function addRow(){
+			
+			var tbody = document.getElementById("tbody");
+			var tr = document.createElement("tr");
+			var td1 = document.createElement("td");
+			var td2 = document.createElement("td");
+			var td3 = document.createElement("td");
+			var td2text = document.createElement("input");
+			var td3text = document.createElement("a");
+
+			td2text.type="text";
+			td3text.href="javascript:;";
+			// td3text.onclick="delRow(this)";
+			td3text.setAttribute("onclick","delRow(this)");
+
+			td1.innerText = "A000";
+			td3text.innerText = "删除";
+			td2.appendChild(td2text);
+			td3.appendChild(td3text);
+
+			tr.appendChild(td1);
+			tr.appendChild(td2);
+			tr.appendChild(td3);
+
+			tbody.appendChild(tr);
+			highLight();
+		}
+
+		// 删除本行
+		function delRow(data){
+			var delrow = data.parentNode.parentNode;
+			var tbody = document.getElementById("tbody");
+			tbody.removeChild(delrow);
+		}
+
+	</script>
+</body>
+</html>
