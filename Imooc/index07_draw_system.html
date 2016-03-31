@@ -1,0 +1,100 @@
+<!-- 抽奖系统 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽奖系统</title>
+    <style type="text/css">
+        .main{
+            height: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #p{
+            font:35px "Microsoft Yahei";
+            font-weight: bold;
+            color: red;
+        }
+        .main span{
+            line-height: 35px;
+            display: inline-block;
+            height: 35px;
+            width: 65px;
+            background-color: blue;
+            color: #FFF;
+            font-weight: bold;
+            margin:10px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var timer = null;
+        var flag = 0;
+            
+        var arr = ["iPhone","iPad", "iTouch", "Samsung S7","Samsung S7 Edge", "Camera", "Mac", "MEIZU","Thanks"];
+
+        window.onload=function(){
+            var p = document.getElementById("p");
+            var start = document.getElementById("start");
+            var stop = document.getElementById("stop");
+            stop.style.backgroundColor="#CCC";
+
+            start.onclick=function(){
+                startF();
+                startC();
+                flag=1;
+            }
+            stop.onclick=function(){
+                stopF();
+                stopC();
+                flag=0;
+            }
+
+            document.onkeyup=function(event){
+                if(event.keyCode==32){
+                    if(flag==0){
+                        startF();
+                        startC();
+                        flag=1;
+                    }else{
+                        stopF();
+                        stopC();
+                        flag=0;
+                    }
+                }
+            }
+
+            function startC(){
+                start.style.backgroundColor="#CCC";
+                stop.style.backgroundColor="blue";
+            }
+
+            function stopC(){
+                start.style.backgroundColor="blue";
+                stop.style.backgroundColor="#CCC";
+            }
+        }
+        function startF(){
+            clearInterval(timer);
+                timer = setInterval(function(){
+                    var r = Math.floor(Math.random()*9);
+                    p.innerHTML= arr[r];
+                },100);
+        }
+
+        function stopF(){
+            clearInterval(timer);
+        }
+
+        
+    </script>
+</head>
+<body>
+    <div class="main">
+        <p id="p">点击或按空格键开始抽奖！</p>
+        <span id="start">开始</span>
+        <span id="stop">停止</span>
+    </div>
+</body>
+</html>
