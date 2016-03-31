@@ -1,0 +1,103 @@
+<!-- 卡片切换 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            font-family: "Microsoft Yahei";
+        }
+        #ul{
+            list-style: none;
+        	border-bottom: 2px #8B4412 solid;
+        	padding: 0px;
+        	margin: 0px;
+        	width: 347px;
+        	/*overflow: visible;*/
+        	padding: 2px 0px 0px 5px;
+        	height: 37px;
+        }
+
+        li{
+        	float: left;
+        	margin-right: 10px;
+        	height: 35px;
+        	width: 65px;
+        	border: 1px #C5C8C5 solid;
+        	border-bottom:none;
+        	text-align: center;
+        	line-height: 35px;
+        	margin-bottom: 0px;
+        	cursor: pointer;
+        	font-weight: bold;
+        }
+
+        div{
+        	border: 1px #4C78A4 solid;
+        	border-top: none;
+        	clear: left;
+        	width: 330px;
+        	height: 170px;
+        	line-height: 35px;
+        	padding: 10px 10px;
+        }
+
+        .hide{
+        	display: none;
+        }
+
+        .omclick{
+        	border-top:2px #8B4412 solid;
+        	margin-top: -1px;
+        	border-bottom: 3px #fff solid;
+        }
+    </style>
+
+    <script type="text/javascript">
+        // 点击li，display对应的div，默认显示fc div
+        window.onload=function(){
+            var lis = document.getElementsByTagName('li');
+            var divs = document.getElementsByTagName('div');
+
+            for (var i = 0, len=lis.length; i < len; i++) {
+                lis[i].index = i;
+                lis[i].onclick=function(){
+                    for (var n = 0; n <len ; n++) {
+                        lis[n].className="";
+                        divs[n].className="hide";
+                    }
+                    this.className="omclick";
+                    divs[this.index].className="";
+                }
+             }
+        }
+</script>
+</head>
+<body>
+	<ul id="ul">
+		<li class="omclick">房产</li>
+		<li>家居</li>
+		<li>二手房</li>
+	</ul>
+	  <div>
+		275万购昌平邻铁三居 总价20万买一居<br>
+		200万内购五环三居 140万安家东三环<br>
+		北京首现零首付楼盘 53万购东5环50平<br>
+		京楼盘直降5000 中信府 公园楼王现房
+	</div>
+	<div class="hide">
+		40平出租屋大改造 美少女的混搭小窝<br>
+		经典清新简欧爱家 90平老房焕发新生<br>
+	            新中式的酷色温情 66平撞色活泼家居<br>
+	            瓷砖就像选好老婆 卫生间烟道的设计
+	</div>
+	<div class="hide">
+		通州豪华3居260万 二环稀缺2居250w甩<br>
+		西3环通透2居290万 130万2居限量抢购<br>
+		黄城根小学学区仅260万 121平70万抛!<br>
+		独家别墅280万 苏州桥2居优惠价248万
+	</div>
+
+</body>
+</html>

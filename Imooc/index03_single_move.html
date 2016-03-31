@@ -1,0 +1,69 @@
+<!-- 缓冲运动实例练习 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		
+		#box1{
+			height:100px;
+			width:200px;
+			background-color: red;
+			position: relative;
+			top:0px;
+			left: -200px;
+		}
+
+		#box2{
+			width: 20px;
+			height: 50px;
+			background-color: blue;
+			position: absolute;
+			top:20px;
+			left: 200px;
+			color: #fff;
+			font-weight: bold;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var box2 = document.getElementById("box2");
+			var box1 = document.getElementById("box1");
+
+			box1.onmousemove=function(){
+				startMove(0);
+			}
+			box1.onmouseout=function(){
+				startMove(-200);
+			}
+		}
+
+		var timer = null;
+		function startMove(iTarget){
+			clearInterval(timer);
+			var box1 = document.getElementById("box1");
+			timer = setInterval(function(){
+				var speed = (iTarget - box1.offsetLeft)/10;
+				// console.log(speed);
+				speed = speed > 0? Math.ceil(speed):Math.floor(speed);
+				if(box1.offsetLeft == iTarget){
+					clearInterval(timer);
+				}
+				else{
+					box1.style.left = box1.offsetLeft + speed + 'px';
+				}
+			},30);
+		}
+
+
+	</script>
+</head>
+<body>
+	<div id="box1"><span id="box2">分享</span></div>
+</body>
+</html>

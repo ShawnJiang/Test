@@ -24,7 +24,7 @@
 			<th>操作</th>
 		</thead>
 		<tbody id="tbody" width="20%">
-<!-- 			<tr>
+			<tr>
 				<td>A001</td>
 				<td>张三</td>
 				<td><a href="javascript:;" onclick="delRow(this)">删除</a></td>
@@ -33,7 +33,7 @@
 				<td>A002</td>
 				<td>李四</td>
 				<td><a href="javascript:;" onclick="delRow(this)">删除</a></td>
-			</tr> -->
+			</tr>
 		</tbody>
 	</table>
 	<input type="button" value="增加" onclick="addRow()" ></input>
@@ -68,8 +68,8 @@
 			// td3text.onclick="delRow(this)";
 			td3text.setAttribute("onclick","delRow(this)");
 
-			td1.innerText = "A000";
-			td3text.innerText = "删除";
+			td1.innerHTML = "A000";
+			td3text.innerHTML = "删除";
 			td2.appendChild(td2text);
 			td3.appendChild(td3text);
 

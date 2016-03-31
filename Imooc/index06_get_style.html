@@ -1,0 +1,57 @@
+<!-- 获取样式 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div{
+			height: 300px;
+			width: 400px;
+			background-color: red;
+			border: 2px black solid;
+			font-size: 20px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var div = document.getElementById("div");
+			console.log(getComputedStyle(div));
+
+			div.onmouseover = function(){
+				startMove();
+			}
+		}
+		var timer = null;
+		function startMove(){
+			clearInterval(timer);
+			var div = document.getElementById("div");
+
+			timer = setInterval(function(){
+				// console.log(getComputedStyle());
+				// console.log(div.offsetWidth);
+				// console.log(getStyle(div, "width"));
+				div.style.width = parseInt(getStyle(div, "width")) - 1 +"px";
+				// console.log(getStyle(div, "border-top-width"));
+				// div.style.borderTopWidth = parseInt(getStyle(div, "borderTopWidth")) + 1 + "px";
+			},50);
+		}
+
+		function getStyle(obj, attr){
+			// IE
+			if(obj.currentSytle){
+				return obj.currentSytle[attr];
+			}
+			// Chrome/Firefox
+			else{
+				return getComputedStyle(obj, false)[attr];
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div">
+		你好！
+	</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!-- 透明渐变 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		ul{
+			margin-top: 20px;
+			list-style: none;
+		}
+		li{
+			height: 100px;
+			width: 300px;
+			margin-bottom: 3px;
+			opacity: 0.6;
+		}
+		.l1{
+			background-color: #FF605A;
+		}
+		.l2{
+			background-color: #FED76F;
+		}
+		.l3{
+			background-color: #E2F58E;
+		}
+		.l4{
+			background-color: #92F7F5;
+		}
+		.l5{
+			background-color: #BA99E4;
+		}
+		.l6{
+			background-color: #92AEEE;
+		}
+		
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oLis = document.getElementsByTagName("li");
+			for (var i = 0; i < oLis.length; i++) {
+				oLis[i].timer=null;
+				oLis[i].op = 6;
+				oLis[i].onmouseover=function(){
+					oP(this, 10);
+				}
+				oLis[i].onmouseout=function(){
+					oP(this, 6);
+				}
+			}
+		}
+
+		function oP(obj,iTarget){
+			clearInterval(obj.timer);
+			var speed = 0;
+			obj.timer = setInterval(function(){
+				if(obj.op > iTarget){	//onmouseover 先于 onmouseout ，当onmouseover触发后，obj.op=10，大于onmouseout传入的3参数，此时进入此判断
+					speed = -1;
+				}else{
+					speed = 1;
+				}
+				console.log(obj.op);
+				// console.log(speed);
+				// console.log(obj.style.opacity);
+				if( obj.op == iTarget){
+					clearInterval(obj.timer);
+				}else{
+					obj.op += speed;
+					obj.style.opacity = obj.op/10;
+				}
+			},50);
+		}
+	</script>
+</head>
+<body>
+	<ul id="ul">
+		<li class="l1"></li>
+		<li class="l2"></li>
+		<li class="l3"></li>
+		<li class="l4"></li>
+		<li class="l5"></li>
+		<li class="l6"></li>
+	</ul>
+</body>
+</html>
