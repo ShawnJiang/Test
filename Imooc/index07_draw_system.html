@@ -1,4 +1,5 @@
 <!-- 抽奖系统 -->
+<!-- 注意：在匿名方法调用外部方法时，变量的作用域问题 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,25 +30,21 @@
     </style>
 
     <script type="text/javascript">
-        var timer = null;
-        var flag = 0;
-            
-        var arr = ["iPhone","iPad", "iTouch", "Samsung S7","Samsung S7 Edge", "Camera", "Mac", "MEIZU","Thanks"];
 
         window.onload=function(){
-            var p = document.getElementById("p");
-            var start = document.getElementById("start");
-            var stop = document.getElementById("stop");
+            var stop = document.getElementById("stop"),
+                p = document.getElementById("p"),
+                start = document.getElementById("start");
             stop.style.backgroundColor="#CCC";
 
             start.onclick=function(){
                 startF();
-                startC();
+                // startC();
                 flag=1;
             }
             stop.onclick=function(){
                 stopF();
-                stopC();
+                // stopC();
                 flag=0;
             }
 
@@ -55,38 +52,56 @@
                 if(event.keyCode==32){
                     if(flag==0){
                         startF();
-                        startC();
+                        // startC();
                         flag=1;
                     }else{
                         stopF();
-                        stopC();
+                        // stopC();
                         flag=0;
                     }
                 }
             }
 
-            function startC(){
-                start.style.backgroundColor="#CCC";
-                stop.style.backgroundColor="blue";
-            }
-
-            function stopC(){
-                start.style.backgroundColor="blue";
-                stop.style.backgroundColor="#CCC";
-            }
         }
+
+        var timer = null;
+        var flag = 0;
+            
+        var arr = ["iPhone","iPad", "iTouch", "Samsung S7","Samsung S7 Edge", "Camera", "Mac", "MEIZU","Thanks"];
+
         function startF(){
             clearInterval(timer);
                 timer = setInterval(function(){
                     var r = Math.floor(Math.random()*9);
                     p.innerHTML= arr[r];
                 },100);
+            colorChange("#CCC", "blue");
         }
 
         function stopF(){
             clearInterval(timer);
+            colorChange("blue", "#CCC");
         }
 
+        function colorChange(startCoo, stopCoo){
+            var start = document.getElementById("start"),
+                stop = document.getElementById("stop");
+            start.style.backgroundColor= startCoo;
+            stop.style.backgroundColor= stopCoo;
+        }
+        // function startC(){
+        //     // var start = document.getElementById("start");
+        //     // var stop = document.getElementById("stop");
+        //     // start.style.backgroundColor="#CCC";
+        //     // stop.style.backgroundColor="blue";
+        // }
+
+        // function stopC(){
+        //     // var start = document.getElementById("start");
+        //     // var stop = document.getElementById("stop");
+        //     stop.style.backgroundColor="#CCC";
+        //     start.style.backgroundColor="blue";
+        // }
         
     </script>
 </head>
