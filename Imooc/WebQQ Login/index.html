@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    .main{
+        /*宽高阴影*/
+        width: 385px;
+        height: 250px;
+        box-shadow: 0px 0px 3px 3px #9f9f9f;
+        
+        /*定位*/
+        position: absolute;
+        top:0;
+        right: 0;
+        left: 0;
+        bottom: 50px;
+        margin:auto;
+        background-color: #f6f6f6;
+
+        /*radiu*/
+        border-radius: 10px;
+    }
+
+    /*login面板*/
+    .loginUI{
+    }
+
+    /*关闭按钮*/
+    .closebtn img{
+        position: absolute;
+        right: -10px;
+        top:-10px;
+
+        /*cursor*/
+        cursor: pointer;
+    }
+
+    /*logo*/
+    #logo{
+        /*宽高*/
+        width: 89px;
+        height: 44px;
+
+
+        /*move*/
+        cursor: move;
+
+        /*背景logo 定位*/   
+        background: url("img/logo.png") no-repeat;
+        margin:10px auto;
+
+    }
+
+    /*input*/
+    .input{
+        /*宽高*/
+        width: 238px;
+        /*定位*/
+        margin:20px auto;
+        /*font*/
+        font: 16px "Microsoft Yahei";
+        font-weight: bold;
+    }
+    /*input css*/
+    .input input{
+        /*W H*/
+        height: 26px;
+        width: 180px;
+        /*border*/
+        border: 1px #CCC solid;
+        border-radius: 3px;
+        /*font*/
+        font:14px "Microsoft Yahei";
+    }
+
+    /*login-state*/
+    .login-state{
+        /*W*/
+        width: 235px;
+
+        /*定位*/
+        margin: 35px auto;
+    }
+
+
+    /*currentState*/
+    #currentState{
+        /*clear float*/
+        overflow: hidden;
+        /*定位*/
+        padding-top: 8px;
+        /*W*/
+        width: 95px;
+
+        /*cursor*/
+        cursor: pointer;
+    }
+
+    /*loginbtn*/
+    .loginbtn{
+        /*W H*/
+        width: 107px;
+        height: 32px;
+
+        /*bg*/
+        background: url("img/login.png") no-repeat;
+
+        /*float*/
+        float: left;
+
+        /*定位*/
+        margin-right: 30px;
+    }
+
+    /*currentState_icon*/
+    .currentState_icon{
+        /*float*/
+        float: left;
+        /*W H*/
+        height: 14px;
+        width: 14px;
+
+        /*定位*/
+        margin-top: 1px;
+    }
+
+    /*angle*/
+    .angle{
+        /*float*/
+        float: left;
+        /*W H*/
+        height: 4px;
+        width: 7px;
+        /*bg*/
+        background: url("img/angle.png");
+        /*定位*/
+        margin: 5px 3px 0;
+    }
+
+    /*currentState_text*/
+    .currentState_text{
+
+    }
+
+    /*otherstate*/
+    #otherstate{
+        list-style: none;
+        width: 100px;
+        height: 180px;
+        position: absolute;
+        right: 78px;
+        bottom: -134px;
+        background-color: #FFF;
+
+        padding-left: 0px;
+
+
+        /*display*/
+        display: none;
+
+        /*shdow*/
+        box-shadow: 0px 0px 3px 3px #9A9A9A;
+    }
+    /*li*/
+    li{
+        /*margin-top: 9px;*/
+        height: 30px;
+        line-height: 30px;
+        cursor: pointer;
+        padding-left: 5px;
+    }
+    /*li div*/
+    li div{
+        width: 14px;
+        height: 14px;
+        float: left;
+        margin: 6px 6px 0 0;
+    }
+    .online{
+        background: url("img/online.png") no-repeat;
+    }
+    .callme{
+        background: url("img/callme.png")
+    }
+    .hidden{
+        background: url("img/hidden.png");
+    }
+    .away{
+        background: url("img/away.png");
+    }
+    .busy{
+        background: url("img/busy.png");
+    }
+    .silent{
+        background: url("img/silent.png");
+    }
+</style>
+<body>
+    <!-- 主体 -->
+    <div class="main">
+        <!-- 登录框 -->
+        <div class="loginUI">
+            <!-- logo -->
+            <div id="logo">
+            </div>
+
+            <!-- input -->
+            <div class="input">
+                <p class="username">账 号：<input type="text" placeholder=" 请输入您的QQ号"></input></p>
+                <p class="password">密 码：<input type="text" placeholder=" 请输入您的密码"></input></p>
+            </div>
+
+            <!-- login btn & state-->
+            <div class="login-state">
+                <!-- loginbtn -->
+                <div class="loginbtn">
+                    
+                </div>
+                <!-- state -->
+                <div id="currentState">
+                    <span class="currentState_icon online"></span>
+                    <span class="angle"></span>
+                    <span class="currentState_text">我在线上</span>
+                </div>
+                <!-- other state -->
+                <ul id="otherstate">
+                    <li id=online><div class="online"></div><span>我在线上</span></li>
+                    <li id=callme><div class="callme"></div><span>Q我吧</span></li>
+                    <li id=hidden><div class="hidden"></div><span>隐身</span></li>
+                    <li id=away><div class="away"></div><span>离开</span></li>
+                    <li id=busy><div class="busy"></div><span>忙碌</span></li>
+                    <li id=silent><div class="silent"></div><span>请勿打扰</span></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- 关闭按钮 -->
+        <div class="closebtn">
+            <img src="img/close.png" alt="关闭">
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        window.onload=function(){
+            var currentState = document.getElementById("currentState");
+            var otherstate = document.getElementById("otherstate");
+            var olis = document.getElementsByTagName("li");
+
+            // 切换登陆状态
+            // 给currentState添加 onclick
+            currentState.onclick=function(){
+                // 显示 otherstate
+                otherstate.style.display="block";
+                // for
+                for (var i = 0; i < olis.length; i++) {
+                    // bg
+                    olis[i].onmouseover=function(){
+                        this.style.backgroundColor="#CCC";
+                    }
+                    olis[i].onmouseout=function(){
+                        this.style.backgroundColor="#FFF";
+                    }
+                    // onclick
+                    olis[i].onclick=function(){
+                        var id = this.id;
+                        currentState.getElementsByTagName("span")[0].className = "currentState_icon " +id;
+                        currentState.getElementsByTagName("span")[2].innerHTML = this.getElementsByTagName("span")[0].innerHTML;
+                        otherstate.style.display="none";
+                    }
+                }
+            }
+            // 鼠标移动登录框
+            var logo = document.getElementById("logo");
+
+            // 获取鼠标按下去的坐标:event.cilentX, cilentY
+            
+            // 获取登录框的坐标: offers1
+            // 将鼠标按下的坐标，减去登录框的坐标，就是登录框到鼠标按下的距离
+            
+            // 将登录框实时的坐标，加上上述的坐标，登录框就不会飘了
+
+        }
+    </script>
+</body>
+</html>
