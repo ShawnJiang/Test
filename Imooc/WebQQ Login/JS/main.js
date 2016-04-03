@@ -61,13 +61,13 @@ function fndown(event){
     // 获取登录框的坐标: offersWidth,offHeight
     // 将鼠标按下的坐标，减去登录框的坐标，就是登录框到鼠标按下的距离
     var main = document.getElementById("main"),
-        mainToMouseWidth = event.clientX - main.offsetLeft,
-        mainToMouseHeight = event.clientY - main.offsetTop;
+    mainToMouseWidth = event.clientX - main.offsetLeft,
+    mainToMouseHeight = event.clientY - main.offsetTop;
     document.onmousemove=function(event){
         fnMove(event,mainToMouseWidth,mainToMouseHeight);
     }
 
-    document.onmouseup=function(){
+    document.onmouseup = function(){
         document.onmousemove=null;
     }
 }
@@ -75,11 +75,11 @@ function fndown(event){
 function fnMove(e,X,Y){
     var main = document.getElementById("main"),
     // 将登录框实时的坐标，加上上述的坐标，登录框就不会飘了
-        l = e.clientX - X,
-        t = e.clientY - Y,
-        maxW = document.documentElement.clientWidth - main.offsetWidth - 10,
-        maxH = document.documentElement.clientHeight - main.offsetHeight-10,
-        marLeft = getComputedStyle(main,false).marginLeft;
+    l = e.clientX - X,
+    t = e.clientY - Y,
+    maxW = document.documentElement.clientWidth - main.offsetWidth - 10,
+    maxH = document.documentElement.clientHeight - main.offsetHeight-10,
+    marLeft = getComputedStyle(main,false).marginLeft;
     if(l<10){
         l=10;
     }else if(l>maxW){
