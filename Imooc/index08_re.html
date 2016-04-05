@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式练习 - 仿制淘宝注册</title>
+    <style type="text/css">
+
+        .main{
+            margin: 50px 100px;
+        }
+        input{
+            height: 30px;
+            width: 178px;
+            border: 1px #CCC solid;
+        }
+        label{
+            font-size: 15px;
+        }
+        #pwc{
+            padding-left: 75px;
+        }
+        #pwc a{
+            display: inline-block;
+            height: 20px;
+            width: 60px;
+            text-align:center;
+            color: #FFF;
+            background-color: #F9BA75;
+            font-size: 14px;
+            line-height: 20px;
+            margin: 5px 0 10px;
+        }
+
+        .yanz{
+            height: 36px;
+            margin: 10px 0;
+        }
+        .yanz input{
+            width: 60px;
+        }
+
+        .yanz a{
+            display: inline-block;
+            height: 36px;
+            width: 75px;
+            margin-bottom: -15px;
+            background: url("img/img.png");
+            cursor: pointer;
+            margin-left: 30px;
+        }
+        .btn{
+            padding-left: 75px;
+        }
+        .btn input{
+            background-color: #ED2F17;
+            color: #fff;
+            height: 40px;
+            cursor: pointer;
+        }
+        #counter{
+            display: none;
+            color: #777;
+            font-size: 14px;
+            padding-left: 75px;
+
+        }
+        .alt{
+            height: 14px;
+            width: 14px;
+            display: inline-block;
+            margin-left: 8px;
+        }
+        .err{
+            background: url("img/err.png");
+        }
+        .tip{
+            background: url("img/tip.png");
+        }
+        .ok{
+            background: url("img/ok.png");
+        }
+        .msg{
+            font-size: 14px;
+            color: #777;
+            margin: 0px;
+            padding: 0px;
+            display: none;
+        }
+        .dd{
+            margin-bottom: 10px;
+            height: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div><label>&nbsp;会员名：<input type="text" class="text"></input></label><span class="msg"><i class="alt tip"></i> 5-20个字符，1个汉字为2个字符，推荐使用中文用户名</span></div>
+
+        <div class="dd"><span id="counter">0个字符</span></div>
+
+        <div><label>登陆密码：<input type="password" class="password"></input></label><span class="msg"><i class="alt tip"></i> 6-25个字符，推荐英文、数字、符号混合使用</span></div>
+
+
+        <div id="pwc"><a>弱</a><a>中</a><a>强</a></div>
+
+        <div><label>确认密码：<input type="password" class="passwordconfirm" disabled=""></input></label><span class="msg"><i class="alt tip"></i> 6-20个字符，1个汉字为2个字符，推荐使用中文用户名</span></div>
+
+
+        <div class="yanz"><label>&nbsp;验证码：<input type="text"></input></label><a  title="点击刷新验证码"></a></div>
+
+        <div class="btn"><input type="button" value="同意协议并注册" ></input></div>
+    </div>
+
+    <ul>
+        <li>会员名验证</li>
+        <li>登陆密码验证</li>
+        <li>密码强度验证</li>
+        <li>确认密码验证</li>
+    </ul>
+    <script type="text/javascript">
+        // 返回字符长度
+        function getLength(str){
+            return str.replace(/[^\x00-xff]/g,'xx').length;
+        }
+        window.onload=function(){
+            // 先拿到所需的tag对象
+            var oInput = document.getElementsByTagName("input"),
+                oSpan = document.getElementsByTagName("span"),
+                name_msg = oSpan[0],
+                oName = oInput[0],
+                counter = oSpan[1],
+                oName_length = 0,
+                re = /[^\w\u4e00-\u9fa5]/, //a-zA-Z0-9_汉字之外的
+                ree = /\w/g, //a-zA-Z0-9_ 英文数字下划线
+                oPassword_msg = oSpan[2],
+                oPasswordCon_msg = oSpan[3],
+                oPassword_length = 0,
+                pwc = document.getElementById("pwc"),
+                oRuo = pwc.getElementsByTagName("a")[0],
+                oZhong = pwc.getElementsByTagName("a")[1],
+                oQiang = pwc.getElementsByTagName("a")[2],
+                renod = /[^\d]/, //非数字
+                redd = /\d/, //数字
+                renoz = /[^A-Za-z0-9]/, //非字母数字，即字符
+                refhh = /[A-Za-z]/,  //字母
+                oPasswordCon = oInput[2],
+                oPassword = oInput[1];
+            // 会员名
+            // 验证要求：1.字母、数字、下划线：/w，2.汉字：\u4e00-\u9fa5
+            // 只要不满足，即：/[^\w\u4e00-\u9fa5]\g，则出现提示
+            // onfocus
+            oName.onfocus=function(){
+                name_msg.style.display="inline";
+                name_msg.innerHTML='<i class="alt tip"></i> 6-25个字符，1个汉字为2个字符，推荐使用中文用户名';
+                // oName_length = 
+            }
+
+            // onkeyup
+            oName.onkeyup=function(){
+                counter.style.display="inline";
+                oName_length = getLength(this.value);
+                counter.innerHTML = oName_length + "个字符";
+
+                if(oName_length==0){
+                    counter.style.display="none";
+                }
+                if(re.test(this.value)){
+                    name_msg.innerHTML = '<i class="alt err"></i> 不能使用非法字符';
+                }
+                else if(oName_length<6){
+                    name_msg.innerHTML = '<i class="alt err"></i> 不能小于6个字符';
+                }else if(oName_length>25){
+                    name_msg.innerHTML = '<i class="alt err"></i> 不能大于25个字符';
+                }else{
+                    name_msg.innerHTML='<i class="alt ok"></i> OK';
+                }
+            }
+
+            oName.onblur=function(){
+                if(this.value==""){
+                    name_msg.innerHTML='<i class="alt err"></i> 用户名不能为空！'
+                }
+            }
+
+            // 登陆密码
+            oPassword.onfocus=function(){
+                oPassword_msg.style.display="inline";
+            }
+
+            oPassword.onkeyup=function(){
+                // console.log(this.value);
+                // var i = this.value;
+                // console.log(!renoz.test(i)); //匹配
+                // oPassword_length = getLength(this.value);
+
+                // 字符长度判断
+                if(this.value.length<6){ //小于6，提示
+                    oPassword_msg.innerHTML = '<i class="alt err"></i> 不能小于6个字符';
+                }else if(this.value.length>25){
+                    oPassword_msg.innerHTML = '<i class="alt err"></i> 不能大于于25个字符';
+                }else {
+                    oPassword_msg.innerHTML = '<i class="alt ok"></i> OK';
+
+                }
+                // console.log(this.value);
+                // console.log(renoz.test(this.value)); //匹配
+
+                // 弱中强判断
+                // 条件：6-11:数字 = 弱
+                if(this.value.length>5 && 
+                   this.value.length<12 && 
+                   !renod.test(this.value)){ 
+
+                    oRuo.style.backgroundColor = "#ED2F17";
+                    oZhong.style.backgroundColor = "#F9BA75";
+                    oQiang.style.backgroundColor = "#F9BA75";
+                }
+
+                // 条件：6-14: 数字+英文 / 12-25: 数字 = 中
+                else if((!renoz.test(this.value) && 
+                        this.value.length>6 
+                        &&this.value.length<15) || 
+                    (!renod.test(this.value) && 
+                        this.value.length>11)){ 
+
+                    oRuo.style.backgroundColor="#F9BA75";
+                    oZhong.style.backgroundColor = "#ED2F17";
+                    oQiang.style.backgroundColor = "#F9BA75";
+                }
+
+                // 条件：6-25: 数字 + 英文 + 符号 || 15: 数字 + 英文 = 强
+                else if(redd.test(this.value) && 
+                        refhh.test(this.value) && 
+                        renoz.test(this.value) && 
+                        this.value.length>5 || 
+                        (!renoz.test(this.value) && 
+                            this.value.length>14)){
+
+                    oRuo.style.backgroundColor="#F9BA75";
+                    oZhong.style.backgroundColor = "#F9BA75";
+                    oQiang.style.backgroundColor = "#ED2F17";
+                }else{
+
+                    oRuo.style.backgroundColor="#F9BA75";
+                    oZhong.style.backgroundColor = "#F9BA75";
+                    oQiang.style.backgroundColor = "#F9BA75";
+                }
+
+                if(this.value.length>5){
+                    oPasswordCon_msg.style.display="inline";
+
+                    oPasswordCon_msg.innerHTML='<i class="alt tip"></i> 请再输入一次！';
+                    oPasswordCon.removeAttribute('disabled');
+                }else{
+                    oPasswordCon.setAttribute('disabled',"");
+                    oPasswordCon_msg.style.display="none";
+
+                }
+            }
+
+            oPassword.onblur=function(){
+                if(this.value==""){
+                    oPassword_msg.innerHTML='<i class="alt err"></i> 密码不能为空！'
+                }
+            }
+
+            // 确认密码
+            oPasswordCon.onkeyup=function(){
+                oPasswordCon_msg.style.display="inline";
+                if(oPassword.value === this.value){
+                    oPasswordCon_msg.innerHTML='<i class="alt ok"></i> OK';
+                }else{
+                    oPasswordCon_msg.innerHTML='<i class="alt err"></i> 两次密码输入不一致，请重试！';
+                }
+            }
+            // 验证码
+            
+        }
+    </script>
+</body>
+</html>
