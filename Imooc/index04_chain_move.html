@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style rel="stylesheet" type="text/css">
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: green;
+            opacity: 0.3;
+            filter: alpha(opacity:30);
+        }
+    </style>
+    <script src="JS/chainMove.js"></script>
+    <script type="text/javascript">
+         window.onload=function(){
+            var div = document.getElementsByTagName("div")[0];
+            div.onmouseover=function(){
+                // 回调函数调用的时候，不能使用this作为参数传入,this会指向parameter1
+                chainMove(this, "height", 500, function(){
+                    // alert("1");
+                    chainMove(div, "width", 600, function(){
+                        chainMove(div, "opacity", 100);
+                    });
+                });
+            }
+            div.onmouseout=function(){
+                chainMove(this, "opacity", 30, function(){
+                    // alert("1");
+                    chainMove(div, "width", 300, function(){
+                        chainMove(div, "height", 200);
+                    });
+                });
+            }
+        }
+      
+    </script>
+</head>
+<body>
+    <div>
+        
+    </div>
+</body>
+</html>
