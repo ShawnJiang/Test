@@ -1,14 +1,3 @@
 #Review
 
-http://shawnjiang.github.io/WORKOUT/Imooc/index01_add_del_info.html
-
-http://shawnjiang.github.io/WORKOUT/Imooc/index02_switch_tabs.html
-
-http://shawnjiang.github.io/WORKOUT/Imooc/index03_single_move.html
-
-http://shawnjiang.github.io/WORKOUT/Imooc/index04_multi_move.html
-
-http://shawnjiang.github.io/WORKOUT/Imooc/index05_multi_opacity.html
-
-http://shawnjiang.github.io/WORKOUT/Imooc/index06_get_style.html
-
+[index01_add_del_info](http://shawnjiang.github.io/WORKOUT/Imooc/index01_add_del_info.html)，[index02_switch_tabs](http://shawnjiang.github.io/WORKOUT/Imooc/index02_switch_tabs.html)，[index03_single_move](http://shawnjiang.github.io/WORKOUT/Imooc/index03_single_move.html)，[index04_multi_move](http://shawnjiang.github.io/WORKOUT/Imooc/index04_multi_move.html)，[index04_chain_move](http://shawnjiang.github.io/WORKOUT/Imooc/index04_chain_move.html)，[index05_multi_opacity](http://shawnjiang.github.io/WORKOUT/Imooc/index05_multi_opacity.html)，[index06_get_style](http://shawnjiang.github.io/WORKOUT/Imooc/index06_get_style.html)，[index07_draw_system](http://shawnjiang.github.io/WORKOUT/Imooc/index07_draw_system.html)，[index08_re](http://shawnjiang.github.io/WORKOUT/Imooc/index08_re.html)，[WebQQ Login](http://shawnjiang.github.io/WORKOUT/Imooc/WebQQ Login/index.html)，[index04_move_taobao](http://shawnjiang.github.io/WORKOUT/Imooc/index04_move_taobao/index.html)
