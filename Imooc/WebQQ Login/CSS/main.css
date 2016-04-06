@@ -48,7 +48,7 @@ body{
     cursor: move;
 
     /*背景logo 定位*/   
-    background: url("../img/logo.png") no-repeat bottom;
+    background: url("../Img/logo.png") no-repeat bottom;
     margin:0px auto;
     /*padding-top: 20px;*/
 
@@ -106,7 +106,7 @@ body{
     height: 32px;
 
     /*bg*/
-    background: url("../img/login.png") no-repeat;
+    background: url("../Img/login.png") no-repeat;
 
     /*float*/
     float: left;
@@ -135,7 +135,7 @@ body{
     height: 4px;
     width: 7px;
     /*bg*/
-    background: url("../img/angle.png");
+    background: url("../Img/angle.png");
     /*定位*/
     margin: 5px 3px 0;
 }
@@ -180,20 +180,20 @@ li div{
     margin: 6px 6px 0 0;
 }
 .online{
-    background: url("../img/online.png") no-repeat;
+    background: url("../Img/online.png") no-repeat;
 }
 .callme{
-    background: url("../img/callme.png")
+    background: url("../Img/callme.png")
 }
 .hidden{
-    background: url("../img/hidden.png");
+    background: url("../Img/hidden.png");
 }
 .away{
-    background: url("../img/away.png");
+    background: url("../Img/away.png");
 }
 .busy{
-    background: url("../img/busy.png");
+    background: url("../Img/busy.png");
 }
 .silent{
-    background: url("../img/silent.png");
+    background: url("../Img/silent.png");
 }
