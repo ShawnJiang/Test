@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    div {
+        margin: 0 50px 50px;
+        height: 180px;
+        overflow: hidden;
+        width: 480px;
+    }
+    
+    li {
+        line-height: 30px;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    p {
+        width: 480px;
+        background: #DDD;
+        height: 60px;
+        margin: 50px 50px 0;
+        line-height: 60px;
+    }
+    #box2{
+    	
+    }
+    </style>
+    <script type="text/javascript">
+    window.onload = function() {
+        var box = document.getElementById("box"),
+            con1 = document.getElementById("con1"),
+            con2 = document.getElementById("con2"),
+            timer = null;
+        con2.innerHTML = con1.innerHTML;
+
+        function scrollInfo() {
+            if (box.scrollTop == con1.offsetHeight) {
+                box.scrollTop = 0; //不用加单位
+            } else {
+                box.scrollTop++;
+            }
+        }
+
+        timer = setInterval(function() {
+            scrollInfo();
+        }, 50); //方法也要加引号,nonono，方法直接用匿名方法调用哦
+
+        box.onmouseover = function() {
+            clearInterval(timer);
+        };
+
+        box.onmouseout = function() {
+            clearInterval(timer);
+            timer = setInterval(function() {
+                scrollInfo();
+            }, 50);
+        };
+    }
+    </script>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <div id="box">
+        <ul id="con1">
+            <li><a href="#">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">4 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">5 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">6 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">7 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">8 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">---------------------------------------------------------</a></li>
+        </ul>
+        <ul id="con2"></ul>
+    </div>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <div id="box2">
+        <ul id="con3">
+            <li><a href="#">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">4 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">5 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">6 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">7 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">8 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+            <li><a href="#">---------------------------------------------------------</a></li>
+        </ul>
+        <ul id="con4">
+        	<li><a href="#">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+        	<li><a href="#">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+        	<li><a href="#">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+        	<li><a href="#">4 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+        	<li><a href="#">5 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+        	<li><a href="#">6 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+        	<li><a href="#">7 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+        	<li><a href="#">8 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+        	<li><a href="#">---------------------------------------------------------</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
