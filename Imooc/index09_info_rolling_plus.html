@@ -31,47 +31,17 @@
         height: 60px;
         margin: 50px 50px 0;
         line-height: 60px;
+        text-align: center;
+        font-size: 28px;
     }
-    #box2{
-    	
-    }
+    
+    #box2 {}
     </style>
-    <script type="text/javascript">
-    window.onload = function() {
-        var box = document.getElementById("box"),
-            con1 = document.getElementById("con1"),
-            con2 = document.getElementById("con2"),
-            timer = null;
-        con2.innerHTML = con1.innerHTML;
-
-        function scrollInfo() {
-            if (box.scrollTop == con1.offsetHeight) {
-                box.scrollTop = 0; //不用加单位
-            } else {
-                box.scrollTop++;
-            }
-        }
-
-        timer = setInterval(function() {
-            scrollInfo();
-        }, 50); //方法也要加引号,nonono，方法直接用匿名方法调用哦
-
-        box.onmouseover = function() {
-            clearInterval(timer);
-        };
-
-        box.onmouseout = function() {
-            clearInterval(timer);
-            timer = setInterval(function() {
-                scrollInfo();
-            }, 50);
-        };
-    }
-    </script>
+    <script src="JS/index09_info_rolling_plus.js"></script>
 </head>
 
 <body>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>无间歇循环滚动</p>
     <div id="box">
         <ul id="con1">
             <li><a href="#">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
@@ -86,8 +56,7 @@
         </ul>
         <ul id="con2"></ul>
     </div>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>间歇性循环滚动</p>
     <div id="box2">
         <ul id="con3">
             <li><a href="#">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
@@ -100,17 +69,7 @@
             <li><a href="#">8 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
             <li><a href="#">---------------------------------------------------------</a></li>
         </ul>
-        <ul id="con4">
-        	<li><a href="#">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
-        	<li><a href="#">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
-        	<li><a href="#">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
-        	<li><a href="#">4 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
-        	<li><a href="#">5 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
-        	<li><a href="#">6 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
-        	<li><a href="#">7 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
-        	<li><a href="#">8 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
-        	<li><a href="#">---------------------------------------------------------</a></li>
-        </ul>
+        <ul id="con4"></ul>
     </div>
 </body>
 
