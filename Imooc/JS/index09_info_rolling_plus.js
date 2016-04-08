@@ -28,7 +28,6 @@ window.onload = function() {
         }, 50);
     };
 
-
     var box2 = document.getElementById("box2"),
         con3 = document.getElementById("con3"),
         con4 = document.getElementById("con4"),
