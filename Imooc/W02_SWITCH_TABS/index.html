@@ -33,7 +33,7 @@
         	font-weight: bold;
         }
 
-        div{
+        #p div{
         	border: 1px #4C78A4 solid;
         	border-top: none;
         	clear: left;
@@ -52,17 +52,29 @@
         	margin-top: -1px;
         	border-bottom: 3px #fff solid;
         }
+        .pp{
+            float: left;
+        }
+        #p{
+            float: left;
+            margin-right: 100px;
+            /*overflow: hidden;*/
+        }
+        p{
+            margin: 5px 0;
+        }
     </style>
 
     <script type="text/javascript">
         // 点击li，display对应的div，默认显示fc div
         window.onload=function(){
             var lis = document.getElementsByTagName('li');
-            var divs = document.getElementsByTagName('div');
+            var div = document.getElementById("p");
+            var divs = div.getElementsByTagName("div");
 
             for (var i = 0, len=lis.length; i < len; i++) {
                 lis[i].index = i;
-                lis[i].onclick=function(){
+                lis[i].onmouseover=function(){
                     for (var n = 0; n <len ; n++) {
                         lis[n].className="";
                         divs[n].className="hide";
@@ -75,29 +87,46 @@
 </script>
 </head>
 <body>
-	<ul id="ul">
-		<li class="omclick">房产</li>
-		<li>家居</li>
-		<li>二手房</li>
-	</ul>
-	  <div>
-		275万购昌平邻铁三居 总价20万买一居<br>
-		200万内购五环三居 140万安家东三环<br>
-		北京首现零首付楼盘 53万购东5环50平<br>
-		京楼盘直降5000 中信府 公园楼王现房
-	</div>
-	<div class="hide">
-		40平出租屋大改造 美少女的混搭小窝<br>
-		经典清新简欧爱家 90平老房焕发新生<br>
-	            新中式的酷色温情 66平撞色活泼家居<br>
-	            瓷砖就像选好老婆 卫生间烟道的设计
-	</div>
-	<div class="hide">
-		通州豪华3居260万 二环稀缺2居250w甩<br>
-		西3环通透2居290万 130万2居限量抢购<br>
-		黄城根小学学区仅260万 121平70万抛!<br>
-		独家别墅280万 苏州桥2居优惠价248万
-	</div>
-
+    <div id="p">
+        <ul id="ul">
+            <li class="omclick">房产</li>
+            <li>家居</li>
+            <li>二手房</li>
+        </ul>
+          <div>
+            275万购昌平邻铁三居 总价20万买一居<br>
+            200万内购五环三居 140万安家东三环<br>
+            北京首现零首付楼盘 53万购东5环50平<br>
+            京楼盘直降5000 中信府 公园楼王现房
+        </div>
+        <div class="hide">
+            40平出租屋大改造 美少女的混搭小窝<br>
+            经典清新简欧爱家 90平老房焕发新生<br>
+                    新中式的酷色温情 66平撞色活泼家居<br>
+                    瓷砖就像选好老婆 卫生间烟道的设计
+        </div>
+        <div class="hide">
+            通州豪华3居260万 二环稀缺2居250w甩<br>
+            西3环通透2居290万 130万2居限量抢购<br>
+            黄城根小学学区仅260万 121平70万抛!<br>
+            独家别墅280万 苏州桥2居优惠价248万
+        </div>
+    </div>
+	
+    <div class="pp">
+        <h2>思路</h2>
+        <p>1. 分为两组，一组是标题，一组是内容</p>
+        <p>2. 标题有两个样式，一个是选中样式，一个是未选中样式</p>
+        <p>3. 内容有两个样式，一个是显示样式，一个是隐藏样式</p>
+        <p><b>4. 问题的关键是，使用JS 配合 CSS 控制两组的显示逻辑</b></p>
+        <p>5. 逻辑：点击标题时，被点的标题应用选中样式，其他标题应用未选中样式</p>
+        <p>6. 同时：对应的内容同步显示，未对应的内容同时隐藏</p>
+        <p>7. 他们之间没有之间的联系，但有一点，他们是一对一的关系</p>
+        <p>8. 利用两层for循环来达到目的</p>
+        <p>9. 外层for循环：循环遍历，给所有标题添加鼠标事件</p>
+        <p>10. <b>内层for循环：用于清除所有标题、内容的样式</b></p>
+        <p>11. <b>内层循环结束，继续利用外循环，将对应鼠标事件的样式应用</b></p>
+        <p>12. 外层循环结束</p>
+    </div>
 </body>
 </html>
