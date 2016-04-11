@@ -1,5 +1,5 @@
 window.onload=function(){
-	alert("你来了啊！买假货，就来假东！少慢差贵，一个让您不剁手的购物商城！JOKE~ : )");
+	alert("你来了啊！( ^_^ )");
 	var banners = document.getElementById('banner').getElementsByTagName("div"),
 		lis = document.getElementById("bul").getElementsByTagName("li"),
 		i = 0;//全局变量，用于自动切换banner图，这样就不会找不到timer了
