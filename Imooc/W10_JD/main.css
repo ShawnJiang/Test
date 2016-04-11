@@ -552,12 +552,64 @@ img{
 	position: absolute;
 	opacity: 0;
 }
-.banner_slected{
-	opacity: 1!important;
-}
 #banner a{
 	display: inline-block;
+	height: 454px;
+	width: 730px;
 }
+
+.b1{
+	background: url("img/1.jpg") no-repeat;
+}
+.b2{
+	background: url("img/2.jpg") no-repeat;
+}
+.b3{
+	background: url("img/3.jpg") no-repeat;
+}
+.b4{
+	background: url("img/4.jpg") no-repeat;
+}
+.b5{
+	background: url("img/5.jpg") no-repeat;
+}
+.b6{
+	background: url("img/6.jpg") no-repeat;
+}
+.b7{
+	background: url("img/7.jpg") no-repeat;
+}
+.b8{
+	background: url("img/8.jpg") no-repeat;
+}
+.b9{
+	background: url("img/9.jpg") no-repeat;
+}
+.b10{
+	background: url("img/10.jpg") no-repeat;
+}
+.b11{
+	background: url("img/11.jpg") no-repeat;
+}
+.b12{
+	background: url("img/12.jpg") no-repeat;
+}
+.b13{
+	background: url("img/13.jpg") no-repeat;
+}
+.b14{
+	background: url("img/14.jpg") no-repeat;
+}
+.b15{
+	background: url("img/15.jpg") no-repeat;
+}
+.b16{
+	background: url("img/16.jpg") no-repeat;
+}
+.b17{
+	background: url("img/17.jpg") no-repeat;
+}
+
 
 #banner ul{
 	list-style: none;

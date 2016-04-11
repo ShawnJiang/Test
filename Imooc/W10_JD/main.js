@@ -1,8 +1,27 @@
 window.onload=function(){
-	alert("你来了啊！( ^_^ )");
+	// alert("你来了啊！( ^_^ )");
 	var banners = document.getElementById('banner').getElementsByTagName("div"),
 		lis = document.getElementById("bul").getElementsByTagName("li"),
-		i = 0;//全局变量，用于自动切换banner图，这样就不会找不到timer了
+		i = 0,//全局变量，用于自动切换banner图，这样就不会找不到timer了
+		// 放banner背景图片class
+		timer = null,
+		bannerArr = ["b1","b2","b3","b4","b5","b6","b7",
+					 "b8","b9","b10","b11","b12","b13","b14","b15","b16","b17"];
+
+	// 随机不重复取出背景图片
+	for (var m = 0; m < banners.length; m++) {
+		var a =Math.floor(Math.random()*bannerArr.length);
+		banners[m].className=bannerArr[a];
+		bannerArr.splice(a,1);
+	}
+
+	// 随机取出图片，但有可能是重复的
+	// for (var p = 0; p < banners.length; p++) {
+	// 	var b = Math.ceil(Math.random()*17);
+	// 	banners[p].style.backgroundImage="url("+"img/"+b+".jpg"+")";
+	// }
+	// 第一张banner图片显示
+	move(banners[0],{"opacity":100},50,6);
 	startMove();
 	for (var j = 0, len=banners.length; j <len; j++) {
 		lis[j].index=j;
