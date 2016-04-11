@@ -39,17 +39,17 @@ window.onload=function(){
 	var ignore = document.getElementById("ignore");
 	var ignore1 = document.getElementById("ignore1");
 	ignore.onmouseover=function(){
-		move(ignore, {"left": 0},50,6);
+		move(ignore, {"left": 0},50,8);
 	}
 	ignore.onmouseout=function(){
-		move(ignore, {"left": -1873},50,6);
+		move(ignore, {"left": -1873},50,8);
 	}
 	ignore1.onmouseover=function(){
 		// ignore.style.display="none";
-		move(ignore1, {"right": 0},50,6);
+		move(ignore1, {"right": 0},50,8);
 	}
 	ignore1.onmouseout=function(){
-		move(ignore1, {"right": -1873},50,6);
+		move(ignore1, {"right": -1873},50,8);
 	}
 }
 // 运动函数
