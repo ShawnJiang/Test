@@ -41,12 +41,12 @@ function chainAndSyncMove(obj,json,fun){
             }
         }
         if(flag){
-                clearInterval(obj.timer);
-                // 如果传入了fun，则在程序停止的时候，执行fun()
-                if(fun){
-                    fun();   
-                }
+            clearInterval(obj.timer);
+            // 如果传入了fun，则在程序停止的时候，执行fun()
+            if(fun){
+                fun();   
             }
+        }
     },50);
 }
 
