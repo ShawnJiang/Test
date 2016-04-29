@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    //////////
+    // 二维数组 //
+    //////////
+    
+    // 声明一个二维数组
+    var arr = [
+        [0, 1],
+        [2, 3],
+        [4, 5]
+    ];
+    // 遍历二维数组 
+    for (var i = 0; i < arr.length; i++) {
+        console.log("arr[" + i + "]" + ": "); //输出二维数组索引
+        for (var j = 0; j < arr[i].length; j++) {
+            console.log(arr[i][j] + " "); //输出二维数组的值
+        }
+    }
+
+    //////////
+    // 稀疏数组 //
+    //////////
+    var arr1 = [undefined];
+    var arr2 = new Array(1);
+
+    console.log(0 in arr1); //true
+    console.log(0 in arr2); //false
+
+    arr1.length = 100; // 设置数组长度为100
+    arr1[99] = 99; // 最后一项设定值
+
+    console.log(99 in arr1); //true
+    console.log(98 in arr1); //false
+    </script>
+</body>
+
+</html>

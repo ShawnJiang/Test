@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var arr = [1, 2, 3, 4, 5];
+    // Array.prototype.join
+    // 将数组用指定字符串分割
+    console.log(arr.join("_")); // 1_2_3_4_5 
+    // 使用join重复输出字符串
+    function repeatString(str, len) {
+        return new Array(len + 1).join(str);
+    }
+    console.log(repeatString("PP_", 5)); //PP_PP_PP_PP_PP_
+
+    // Array.prototype.reverse
+    // 颠倒数组
+    // 注意：原数组被修改
+    var arr1 = arr;
+    console.log("" + arr1.reverse()); //5,4,3,2,1 
+    console.log("reverse后，原数组被修改：" + arr1); //5,4,3,2,1 
+
+    // Array.prototype.sort
+    // 默认将元素转换为字符串进行排序，所以数字只看开头的
+    // 注意：原数组未被修改
+    var arr2 = [12, 2, 33, 42, 28];
+    console.log("" + arr2.sort()); //12,2,28,33,42 
+    // 传入方法，升序排序
+    console.log("" + arr2.sort(function(a, b) {
+        return a - b;
+    })); //2,12,28,33,42 
+    // 对象升序排序
+    var arr3 = [{
+        age: 12
+    }, {
+        age: 23
+    }, {
+        age: 22
+    }, {
+        age: 1
+    }];
+    arr3.sort(function(a, b) {
+        return a.age - b.age;
+    });
+    arr3.forEach(function(item) {
+        console.log(item.age + " "); //
+    });
+
+    // Array.prototype.concat
+    // 数组合并
+    // 注意：原数组未被修改
+    var arr4 = [1, 2, 3, 4, 5];
+    console.log("" + arr4.concat(6, 7)); //1,2,3,4,5,6,7 
+    console.log("" + arr4); //1,2,3,4,5 
+    // 拉平一次数组
+    console.log("" + arr4.concat([6, 7], 8)); //1,2,3,4,5,6,7,8
+    console.log(arr4.concat([
+        [6, 7],
+        [8, 9]
+    ])); //含二维数组
+
+    // Array.prototype.slice
+    // 返回部分数组，包含前面的索引，不包含后面的索引
+    // 注意：原数组未被修改
+    var arr5 = [1, 2, 3, 4, 5, 6, 6, 8];
+    console.log(arr5.slice(2, -1));
+
+    // Array.prototype.splice 
+    // splice() 方法用新元素替换旧元素，以此修改数组的内容。
+    // 注意：原数组被修改
+    var arr6 = [1,2,3,4,5,43,2,23,2,2];
+    // 删除元素，返回被删除元素的数组
+    console.log(""+arr6.splice(5,2));
+    console.log(""+arr6);
+
+    // 从第 2 位开始删除 1 个元素，插入 "888"
+    console.log(arr6.splice(2,1,"888"));
+    console.log(""+arr6);
+    // 从第 2 位开始删除 0 个元素，插入 "33"
+    console.log(arr6.splice(2,0,"33"));
+    console.log(arr6);
+    
+    </script>
+</body>
+
+</html>
