@@ -18,8 +18,11 @@
 
 [index08_re](http://shawnjiang.github.io/WORKOUT/Imooc/index08_re.html)
 
+[W09_INFO_ROLLING](http://shawnjiang.github.io/WORKOUT/Imooc/W09_INFO_ROLLING/index.html)
+
 [WebQQ Login](http://shawnjiang.github.io/WORKOUT/Imooc/WebQQ Login/index.html)
 
 [index04_move_taobao](http://shawnjiang.github.io/WORKOUT/Imooc/index04_move_taobao/index.html)
 
-[JD](http://shawnjiang.github.io/WORKOUT/Imooc/W10_JD_NAV/index.html)
+[JD](http://shawnjiang.github.io/WORKOUT/Imooc/W10_JD/index.html)
+W09_INFO_ROLLING
