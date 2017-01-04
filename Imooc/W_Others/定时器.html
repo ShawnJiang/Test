@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			padding-top: 10px;
+			width: 1000px;
+			margin: 0 auto;		
+		}
+		button{
+			width: 400px;
+			height: 200px;
+			margin: 10px;
+		}
+		input{
+			width: 1000px;
+			margin: 300px 0px 0 462px;	
+		}
+	</style>
+	<script type="text/javascript">
+		var timer = null;
+		function go(time){
+			document.getElementById("in").value = "....";
+			document.getElementById("in").value = "开始了哦！";
+			// alert("开始了哦！");
+				timer = setInterval(function(){
+					alert("时间到了！");
+					document.getElementById("in").value = "结束了哦！";
+					clearInterval(timer);
+				},time);
+			}
+	</script>
+</head>
+<body>
+	<input id="in" value="...">
+	<div>
+		<button onclick="go(1800000)">30分钟</button>
+		<button onclick="go(300000)">5分钟</button>
+	</div>
+</body>
+</html>

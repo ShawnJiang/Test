@@ -5,7 +5,7 @@ body{
 	padding: 0;
 	background-color: #FFFFFF;
 	margin: 0;
-	overflow-x: hidden;
+	overflow-x: hidden; /*裁剪 div 元素中内容的左/右边缘 - 如果溢出元素的内容区域的话：*/
 }
 a{
 	text-decoration: none;
@@ -794,20 +794,20 @@ img{
 #ignore{
 	position: fixed;
 	top: 0px;
-	left: -1873px;
+	left: -150px;
 	z-index: 12;
 }
 #ignore1{
 	position: fixed;
 	top: 0px;
-	right: -1873px;
+	right: -150px;
 	z-index: 11;
 }
 #ignore a, #ignore1 a{
 	text-align: center;
 	line-height: 30px;
 	height: 30px;
-	width: 1873px;
+	width: 150px;
 	background-color: #B1191A;
 	color: #FFFFFF;
 	font-weight: bold;
