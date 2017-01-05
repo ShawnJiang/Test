@@ -36,13 +36,13 @@
 			document.getElementById("in").value = "开始了哦！";
 			timer = setInterval(function(){
 				time--;
+				document.getElementById(bn).textContent=time+"分钟"; //输出不能显示到0分钟！这是为什么
 				if (time == 0) {
 					clearInterval(timer);
 					document.getElementById("in").value = "点击开始！";
 					bn == 'b1' ? document.getElementById(bn).textContent = "30分钟" : document.getElementById(bn).textContent = "5分钟";
 					alert("时间到了！");
 				}
-				document.getElementById(bn).textContent=time+"分钟"; //输出不能显示到0分钟！这是为什么
 			},60000);
 		}
 	</script>
