@@ -4,40 +4,54 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style type="text/css">
+		body{
+			background-color: #FBFFFF;
+		}
 		div{
-			padding-top: 10px;
-			width: 1000px;
+			width: 808px;
 			margin: 0 auto;		
 		}
 		button{
+			padding: 0;
+			border: 0;
 			width: 400px;
 			height: 200px;
-			margin: 10px;
+			margin: 0px;
+			font-size: 55px;
+			background-color: #AAAFFF;
+
 		}
 		input{
-			width: 1000px;
-			margin: 300px 0px 0 462px;	
+			margin-top: 100px;
+			display:block;
+			width: 804px;
+			margin: 100px auto 10px;	
+			font-size: 35px;
 		}
 	</style>
 	<script type="text/javascript">
 		var timer = null;
-		function go(time){
-			document.getElementById("in").value = "....";
+		function go(time,bn){
+			bn == 'b1' ? document.getElementById(bn).textContent = "30分钟" : document.getElementById(bn).textContent = "5分钟";
 			document.getElementById("in").value = "开始了哦！";
-			// alert("开始了哦！");
-				timer = setInterval(function(){
-					alert("时间到了！");
-					document.getElementById("in").value = "结束了哦！";
+			timer = setInterval(function(){
+				time--;
+				if (time == 0) {
 					clearInterval(timer);
-				},time);
-			}
+					document.getElementById("in").value = "点击开始！";
+					bn == 'b1' ? document.getElementById(bn).textContent = "30分钟" : document.getElementById(bn).textContent = "5分钟";
+					alert("时间到了！");
+				}
+				document.getElementById(bn).textContent=time+"分钟"; //输出不能显示到0分钟！这是为什么
+			},60000);
+		}
 	</script>
 </head>
 <body>
-	<input id="in" value="...">
+	<input id="in" value="点击开始！">
 	<div>
-		<button onclick="go(1800000)">30分钟</button>
-		<button onclick="go(300000)">5分钟</button>
+		<button id="b1" onclick="go(30, 'b1')">30分钟</button>
+		<button id="b2" onclick="go(5, 'b2')">5分钟</button>
 	</div>
 </body>
 </html>
