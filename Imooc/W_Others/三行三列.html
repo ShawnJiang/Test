@@ -1,0 +1,66 @@
+<!--
+创优网络笔试题目
+要求：写出网页的头部、身体（分为左、中、右三列）、底部，宽度均为1000px；水平居中对齐。
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三行三列</title>
+</head>
+	<style type="text/css">
+		body{
+			margin: 0;
+		}
+		.header{
+			width: 1000px;
+			height: 200px;
+			background-color: #ABD;
+			margin: 0 auto;
+		}
+		.body{
+			width: 1000px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.body_1{
+			width: 100px;
+			height: 500px;
+			background-color: #ABb;
+			float: left;
+		}
+		.body_2{
+			width: 800px;
+			height: 500px;
+			background-color: #cdb;
+			float: left;
+		}
+		.body_3{
+			width: 100px;
+			height: 500px;
+			background-color: #BBb;
+			float: right;
+		}
+		.foot{
+			width: 1000px;
+			height: 200px;
+			background-color: #ccc;
+			margin: 0 auto;
+		}
+	</style>
+<body>
+	<div class="header">
+		
+	</div>
+	<div class="body">
+		<div class="body_1"></div>
+		<div class="body_2"></div>
+		<div class="body_3"></div>
+	</div>
+	<div class="foot">
+		
+	</div>
+	
+</body>
+</html>
