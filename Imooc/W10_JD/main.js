@@ -12,7 +12,7 @@ window.onload = function() {
             bannerArr.splice(a, 1); //将背景图片数组中随机拿到的元素从数组中删除，保证不重复
         }
 
-        move(banners[i], { "opacity": 100 }, 50, 6); // 将第一张banner图片显示	
+        move(banners[i], { "opacity": 100 }, 50, 6); // 将第一张banner图片显示  
         startMove(); // 按照给定的间隔时间，依次显示其他图片，但每次只显示一张
 
         //给所有图片及图片序号添加鼠标移入、鼠标移出事件，鼠标移入：停止banner图动画，鼠标移出：继续banner图动画
@@ -75,15 +75,15 @@ window.onload = function() {
     }
     // 运动函数
 function move(obj, json, tim, spe, fun) {
-    var flag = null;// 标记，用于关闭定时器
-    clearInterval(obj.timer);// 先关闭定时器，避免重复触发定时器
+    var flag = null; // 标记，用于关闭定时器
+    clearInterval(obj.timer); // 先关闭定时器，避免重复触发定时器
 
     // 将定时器的返回结果赋值给变量timer,用于关闭定时器
     obj.timer = setInterval(function() {
-        flag = true;//赋值为true，下面的循环退出时，若flag为true，则关闭定时器
+        flag = true; //赋值为true，下面的循环退出时，若flag为true，则关闭定时器
         // 遍历json，用键attr找值
         for (attr in json) {
-            var cur = 0;// 定义变量，用于每次循环获取当前attr对应的值
+            var cur = 0; // 定义变量，用于每次循环获取当前attr对应的值
             // 如果变量attr是opacity(透明度)，则要进行处理才能使用
             if (attr == "opacity") {
                 // 使用getStyle函数（浏览器兼容性，根据属性，获取对应的值）获取变量attr对应的值
@@ -95,15 +95,15 @@ function move(obj, json, tim, spe, fun) {
             else {
                 cur = parseInt(getStyle(obj, attr));
             }
-            var speed = (json[attr] - cur) / spe;// 计算运动的速度，等于目标值减去当前值，除以给定的初始速度
-            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);// 判断速度大小，大于0向上取整，小于0，向下取整
+            var speed = (json[attr] - cur) / spe; // 计算运动的速度，等于目标值减去当前值，除以给定的初始速度
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed); // 判断速度大小，大于0向上取整，小于0，向下取整
             // 如果当前值不等于目标值，则将flag赋值为false，退出循环时继续下一次的循环
             if (cur != json[attr]) {
                 flag = false;
             }
             //赋值操作，如果是透明度
             if (attr == "opacity") {
-                obj.style[attr] = (cur + speed) / 100;// 当前值加上速度，除以前面乘以的100
+                obj.style[attr] = (cur + speed) / 100; // 当前值加上速度，除以前面乘以的100
             }
             // 如果不是透明度
             else {
