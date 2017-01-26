@@ -67,9 +67,9 @@
     console.log(parseFloat("0.12"));
     console.log(parseFloat("0102.12"));
     console.log(parseFloat(true));*/
-    
+
     // String
-    console.log("\nHi!");
+    /*console.log("\nHi!");
     console.log("\tHi");
     console.log("\\");
     var v = 1;
@@ -81,8 +81,79 @@
     console.log(String(b));
     console.log(String(a));
     console.log(b);
-    console.log(a);
+    console.log(a);*/
 
+    // 位操作符
+    // 按位非
+    /*var num1 = 25;
+    var num2 = ~num1;
+    console.log(num2);
+    // 按位与
+    var re = 25 & 3;
+    console.log(re);
+    // 按位或
+    var r = 25 | 3;
+    console.log(r);
+    // 按位异或
+    var rr = 25 ^ 3;
+    console.log(rr);
+    // 左移
+    var r1 = 2;
+    var r2 = r1 << 5;
+    console.log(r2);
+    // 右移
+    var r3 = r1 >> 1;
+    console.log(r3);
+    // 无符号右移
+    var r4 = -1 >>> 26;
+    console.log(r4);*/
+
+    // 布尔操作符
+    /*console.log(!false);
+    console.log(!"");
+    console.log(!NaN);
+    console.log(!undefined);
+    console.log(!"123");
+    console.log(!null);
+
+  	console.log(true && someUndefinedVariable);
+  	console.log(false && someUndefinedVariable);
+
+  	console.log(true || someUndefinedVariable);
+  	console.log(false || someUndefinedVariable);*/
+
+    // NaN
+    /*console.log(2/true);
+    console.log(2/"");
+    console.log(2/parseInt("2qwe"));
+    console.log(2/null);
+    console.log(2/undefined);*/
+    // 结论：当一个数值除以非数值时，不会立马返回NaN，会调用非数值的Number()进行运算
+
+    /*console.log("-----------------------");
+    console.log(0/0); //NaN
+    console.log(1/0); // Infinity
+    console.log(-1/0); // -Infinity
+    console.log(5%0); // NaN
+    console.log("-----------------------");*/
+
+    // 函数
+    // 参数保存在arguments数组中，在函数内部可以访问这个数组
+    function test() {
+        console.log(arguments.length);
+    }
+    test(1, 2, 3);
+    test();
+    test("","1");
+
+    // 命名的参数只提供便利，但不是必须的。
+    function test2(){
+    	console.log("Hello" + arguments[0] + ", " + arguments[1]);
+    }
+    console.log("------------------------")
+    test2(" shawn", "Have lunch?");
+
+    
     </script>
 </head>
 

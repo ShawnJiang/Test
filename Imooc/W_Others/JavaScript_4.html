@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // 复制引用类型的值时，就是复制引用，该引用指向同一个对象
+    var person = new Object();
+    person.name = "shawn";
+    console.log(person.name); //shawn
+    var human = person;
+    console.log(human.name); //shawn
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

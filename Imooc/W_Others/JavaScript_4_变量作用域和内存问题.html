@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // 复制引用类型的值时，就是复制引用，该引用指向同一个对象
+    /*
+    var person = new Object();
+    person.name = "shawn";
+    console.log(person.name); //shawn
+    var human = person;
+    console.log(human.name); //shawn
+	*/
+
+    // 函数的参数是按值传递的
+    // 跟复制变量值一样，普通类型的值是它本身的值，复制该值，传递进去
+    // 引用类型的值是指针，复制指针，指向同一个对象
+    /*
+    function fun(obj) {
+        obj.name = "shawn";
+        obj = new Object();
+        obj.name = "jiang";
+    }
+    var person = new Object();
+    fun(person);
+    console.log(person.name);
+    */
+
+    // 执行环境、变量对象、作用域链
+    /*
+    var color = "blue";
+
+    function changeColor() {
+        var anotherColor = "red";
+
+        function swapColor() {
+            var tempColor = anotherColor;
+            anotherColor = color;
+            color = tempColor;
+            // console.log(color);
+        }
+        swapColor();
+        console.log(anotherColor);
+    }
+    changeColor();
+    console.log(color);
+    */
+
+    //JS 没有块级作用域
+    /*
+    if (true) {
+        var i = 'blue';
+    }
+    var j = 0;
+    for (var k = 0; k < 5; k++) {
+        j += k;
+    }
+    console.log(i);
+    console.log(j);
+    */
+
+    // 查询标识符
+    /*
+    var color = "blue";
+
+    function colorA() {
+        var color = "red";
+        // console.log(colorA().color); 不能这样访问color值，因为colorA只是一个函数，而不是对象。
+        return color;
+    }
+    console.log(colorA());
+    console.log(window.color); //window是一个对象，所以可以访问window的color值
+	*/
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

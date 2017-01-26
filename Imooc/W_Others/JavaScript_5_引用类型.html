@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // 创建对象的2种方法
+    /*
+    var person = new Object();
+    person.name = "shawn";
+    person.age = 18;
+
+    var human = {
+        name: "Jiang",
+        age: 19
+    };
+
+    console.log(person.name);
+    console.log(person.age);
+    console.log(human.name); //Jiang
+    console.log(human["name"]);
+    console.log(human.age); //19
+
+    function displayInfo(args) {
+        var output = "";
+
+        if (typeof args.name == "string") {
+            console.log("Name: " + args.name + "\n");
+        }
+
+        if (typeof args.age == "number") {
+            console.log("Age: " + args.age);
+        }
+
+    }
+    
+    //传入一个对象
+    displayInfo({
+        name: "shawnJ",
+        age: 22
+    });
+
+    displayInfo({
+        name: "JiangS"
+    });
+	*/
+
+    // 数组
+    /*
+    var arr = ["red", "green", "blue"];
+    console.log(arr.join("|"));
+    console.log(arr.join(" | "));
+    console.log(arr.length);
+
+    // 模拟栈方法
+    var count = arr.push("black");//将元素添加到数组最后一项
+    var a = arr.pop();
+    console.log("-------------------")
+    console.log(count);
+    console.log(a);
+
+    // 模拟队列方法
+    count = arr.push("yellow");
+    a = arr.shift();
+    console.log(count);
+    console.log(a);
+
+    // 反向模拟队列方法
+    count = arr.unshift("pink");
+    a = arr.pop();
+    console.log(count);
+    console.log(a);
+    */
+
+    // 数组排序及反向
+    /*
+    var arr = [0, 1, 12, 14, 22, 5];
+    console.log(arr.reverse()); //反向
+    console.log(arr.sort());
+
+    function compare(value1, value2) {
+        return value2 - value1;
+    }
+
+    function compare(value1, value2) {
+        if (value1 < value2) {
+            return -1;
+        } else if (value1 > value2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+    console.log(arr.sort(compare));
+    */
+
+    // 数组方法
+
+    var arr = ["blue", "red", "black"];
+    var color = arr.concat("green");
+    console.log(color);
+    var color1 = arr.slice(1);
+    console.log(color1);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
