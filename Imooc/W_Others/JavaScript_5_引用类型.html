@@ -44,7 +44,7 @@
     displayInfo({
         name: "JiangS"
     });
-	*/
+    */
 
     // 数组
     /*
@@ -96,12 +96,416 @@
     */
 
     // 数组方法
-
+    /*
     var arr = ["blue", "red", "black"];
     var color = arr.concat("green");
     console.log(color);
     var color1 = arr.slice(1);
     console.log(color1);
+
+    arr.splice(1, 1);
+    console.log(arr);
+    arr.splice(1, 0, "yellow", "gray");
+    console.log(arr);
+    arr.splice(2, 1, "green");
+    console.log(arr);
+
+    console.log(arr.indexOf("green"));
+    console.log(arr.lastIndexOf("green"));
+
+    // every, some, forEach, fliter, map
+    var number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var n1 = number.every(function(item, index, array) {
+        return (item > 2);
+    });
+    console.log(n1);
+    var n2 = number.some(function(item, index, array) {
+        return (item > 2);
+    });
+    console.log("n2: " + n2);
+
+    var n3 = number.filter(function(item, index, array) {
+        return (item > 2);
+    });
+    console.log(n3);
+
+    var n4 = number.map(function(item, index, array) {
+        return (item * 3);
+    });
+    console.log(n4);
+    var n5 = number.forEach(function(item, index, array) {
+        return (item * 2);
+    });
+    console.log(number);
+    var n6 = number.reduce(function(prev, cur, index, array) {
+        return (prev + cur);
+    });
+    console.log(n6);
+
+    var n7 = number.reduceRight(function(prev, cur, index, array) {
+        return (prev + cur);
+    });
+    console.log(n7);
+
+    console.log("--------------------------------");
+    var date = Date.now();
+    var date1 = new Date(Date.UTC(2017, 0, 27, 11, 23, 0));
+    var date3 = new Date(Date.parse("May 25, 2017"));
+    console.log(date);
+    console.log(date1);
+    console.log(date3);
+    console.log(new Date("January 21, 2017"));
+    console.log(new Date(1485487706189));
+    var start = Date.now();
+    var j = 1;
+    for (var i = 1; i < 1000000; i++) {
+        j += i;
+    }
+    console.log(j);
+    var stop = Date.now();
+    console.log(stop - start);
+    var date4 = new Date(1485487706189);
+    console.log(date4);
+    console.log(date4.toString());
+    console.log(date4.valueOf());
+    console.log(date4.toLocaleString());
+
+    // exec()返回数组，属性index, input，捕获组
+    var text = "mom and dad and baby";
+    var pattern = /mom (and dad( and baby)?)?/gi;
+    var match = pattern.exec(text);
+    console.log(match.input);
+    console.log(match[0]);
+    console.log(match.index);
+    console.log(match[1]);
+    console.log(match[2]);
+
+    // exec() 始终返回一个匹配项，设置全局，会继续查找
+    var text2 = "bat, cat, dat, eat";
+
+    var pattern2 = /.at/;
+    var match = pattern2.exec(text2);
+    console.log(match);
+    console.log(pattern2.lastIndex);
+
+    var pattern3 = /.at/g;
+    var match2 = pattern3.exec(text2);
+    console.log(match2);
+    console.log(pattern3.lastIndex);
+
+    var match2 = pattern3.exec(text2);
+    console.log(match2);
+    console.log(pattern3.lastIndex);
+
+    // test(), 有匹配项返回true，没有返回false
+    var text3 = "0000-00-000";
+
+    var pattern4 = /\d{4}-\d{2}-\d{4}/;
+    console.log(pattern4.test(text3)); //true
+    */
+
+    //Function 类型
+    // 新建函数的三种方式
+    /*
+    function sum(s1, s2) {
+        return s1 + s2;
+    }
+    var sum1 = sum;
+    var sum0 = function(s1, s2) {
+        return s1 + s2;
+    }
+    var sunm2 = new Function("s1", "s2", "return s1+s2");
+
+    console.log(sum(10, 20));
+    console.log(sum0(2, 2));
+    console.log(sunm2(2, 3));
+    console.log(sum1(5, 15));
+
+    sum = null;
+    console.log(sum(10, 20));
+    */
+
+    // 函数声明和函数表达式
+    /*
+    var sum = function(s1, s2) {
+        return s1 + s2;
+    }
+
+    console.log(sum(1, 1));
+    */
+
+    // 作为值的函数
+    /*
+    function callSomeFunction(someFunction, someArgument) {
+        return someFunction(someArgument);
+    }
+
+    function sum10(num) {
+        return num + 10;
+    }
+    var result = callSomeFunction(sum10, 10);
+    console.log(result);
+
+    function name(name) {
+        return "Hi" + name;
+    }
+    console.log(callSomeFunction(name, "Shawn"));
+
+    function com(pro) {
+        return function(obj1, obj2) {
+            var v1 = obj1[pro];
+            var v2 = obj2[pro];
+
+            if (v1 < v2) {
+                return -1;
+            } else if (v1 > v2) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    var arr = [{
+        name: "shawn",
+        age: 21
+    }, {
+        name: "aiang",
+        age: 22
+    }];
+    arr.sort(com("name"));
+    console.log(arr[0]);
+    arr.sort(com("age"));
+    console.log(arr[0]);
+    */
+
+    //arguments的callee属性，指向拥有此arguments的函数
+    /*
+    //阶乘
+    function cx(num) {
+        if (num <= 1) {
+            return 1;
+        } else {
+            return num * cx(num - 1);
+        }
+    }
+
+    console.log(cx(5));
+
+    // 使用callee属性调用自身，降低耦合
+    function jx(num) {
+        if (num <= 1) {
+            return 1;
+        } else {
+            return num * arguments.callee(num - 1);
+        }
+    }
+    console.log(jx(5));
+
+    var cx1 = cx;
+    cx = function() {
+        return 0;
+    };
+
+    console.log(cx1(5)); //报错
+
+    var jx1 = jx;
+    jx = null;
+    console.log(jx1(5));
+
+    // this属性，引用的是函数据以执行的环境对象
+    window.color = "red";
+    // var o = new Object();
+    // o.color = "blue";
+
+    var o = {
+        color: "blue"
+    };
+
+
+    function showColor() {
+        return this.color;
+    }
+    console.log(showColor());
+    o.showColor = showColor;
+    console.log(o.showColor());
+
+    // caller属性，保存调用当前函数的函数的引用
+    function out() {
+        inner();
+    }
+
+    function inner() {
+        console.log(arguments.callee.caller);
+    }
+
+    out();
+    */
+
+    // for in 枚举对象的属性
+    /*
+    for (var proName in window) {
+        console.log(proName);
+    }
+    */
+
+    // 函数的属性和方法
+    /*
+    // length
+    function name(name) {
+        console.log(name);
+    }
+
+    function sum(s1, s2) {
+        return (s1 + s2);
+    }
+
+    function sum1(s1, s2, s3) {
+        return (s1 + s2 + s3);
+    }
+    console.log(name.length);
+    console.log(sum.length);
+    console.log(sum1.length);
+
+    // prototype
+    // 
+    // apply() call()，改变函数的this值
+    window.color = "red";
+    var o = {
+        color: "blue"
+    };
+
+    function showColor(sum1, sum2) {
+        console.log(this.color);
+    }
+
+    showColor();
+    showColor.call(this);
+    showColor.apply(this);
+    showColor.call(o);
+    showColor.apply(o);
+
+    var sc = showColor.bind(o);
+    sc();
+    */
+
+    // 基本包装类型
+
+    // Boolean
+    /*
+    var falseOjbect = new Boolean(false);
+    var falseValue = false;
+
+    console.log(falseOjbect && true);
+    console.log(falseValue && true);
+
+    console.log(typeof falseOjbect);
+    console.log(typeof falseValue);
+
+    console.log(falseOjbect instanceof Boolean);
+    console.log(falseValue instanceof Boolean);
+    */
+
+    // Number
+    /*
+    var num = Number(120.0006);
+    console.log(typeof num);
+
+    var mun = new Number(12.0006);
+    console.log(typeof mun);
+    console.log(num.toPrecision(6));
+    */
+
+    // String
+    /*
+    var str = "Hello World";
+    console.log(str.slice(1, 8));
+    console.log(str.substr(1, 8));
+
+    var text = "adfs sdfewe ewrqwe asd rte sada adasq qweasd asd";
+    var arr = new Array();
+    var pos = text.indexOf("a");
+    while (pos > -1) {
+        arr.push(pos);
+        pos = text.indexOf("a", pos + 1);
+    }
+    console.log(arr);
+
+    // replace(agr1, agr2)替换
+    // String
+    var text1 = text.replace("a", "z");
+    console.log(text1);
+
+    // RegExp
+    var text2 = text.replace(/a/g, "z");
+    console.log(text2);
+
+    // function
+    function htmlCase(text) {
+        return text.replace(/[<>&"]/g, function(match, pos, originText) {
+            switch (match) {
+                case "<":
+                    return "&lt;";
+                case ">":
+                    return "&gt;";
+                case "&":
+                    return "&amp;";
+                case "\"":
+                    return "&quot;";
+            }
+        });
+    }
+    text = "<p class=\"prag\">Shawn & Jiang</p>";
+    console.log(text);
+    var text3 = htmlCase(text);
+    console.log(text3);
+
+    // split() 分割String，返回Array
+    var text4 = "red, blue, yellow, green";
+    console.log(text4.split(/[^\,]+/));
+    console.log(text4.split(/[^,]+/));
+    console.log(text4.split(","));
+
+    // localCompare()，String比较
+    var text5 = new String("tfff");
+    console.log(text5.localeCompare("baby"));
+
+    function locaCom(text) {
+        var result = this.localeCompare(text);
+        if (result > 0) {
+            console.log("你在我前面");
+        } else if (result < 0) {
+            console.log("你在我后面");
+        } else {
+            console.log("我们一样大");
+        }
+    }
+
+    text5.locaCom = locaCom; // 复制函数指针到对象
+    text5.locaCom("tggg");
+
+    var o = locaCom.bind(text5); // 将locaCom()函数的this值设置为text5并保存到变量o中
+    o("baby");
+    */
+
+    // Global对象
+    // URI编码方法
+    var text6 = "http://www.baidu.com/shawn Jiang#htm";
+    console.log(encodeURIComponent(text6));
+
+    var text7 = encodeURIComponent(text6);
+    console.log(decodeURIComponent(text7));
+
+    // eval()把参数当做代码执行
+    eval("console.log(text6)");
+    eval("var esg = 'hello world!'"); // eval()中的代码与eval()同一作用域
+    console.log(esg);
+
+    // 取得Global对象的方法
+    var gb = function() {
+        return this;
+    }();
+    console.log(gb); //打印global对象的所有属性方法
     </script>
 </head>
 

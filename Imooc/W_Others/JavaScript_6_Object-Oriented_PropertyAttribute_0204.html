@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // 原型模式 & 构造函数模式
+
+    // 构造函数模式：实例独有的属性
+    var Person = function(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.friends = ["琪琪", "薫薫"];
+    };
+
+    // 原型模式：方法和共享的属性
+    Person.prototype = {
+        constructor: Person,
+        sayName() {
+            console.log(this.friends);
+        }
+    };
+
+    var person1 = new Person("Shawn", 27, "soft");
+    var person2 = new Person("Jiang", 28, "hard");
+
+    console.log(person1);
+
+    person1.friends.push("轩轩");
+    console.log(person1);
+    console.log(person2);
+
+    person1.sayName();
+
+    // 动态原型模式
+    var People = function(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        if (typeof this.sayName != "function") {
+            People.prototype.sayName = function() {
+                console.log(this.name);
+            }
+        }
+    }
+
+    var people1 = new People("Sj", 22, "soft engneer");
+    people1.sayName();
+    console.log(people1 instanceof Person);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

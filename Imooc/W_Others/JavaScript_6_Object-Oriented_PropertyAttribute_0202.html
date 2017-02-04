@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // 定义多个属性的特性
+    var book = {};
+
+    Object.defineProperties(book, {
+        _year: {
+            writable: true,
+            configurable: true,
+            value: 2016
+        },
+
+        edition: {
+            writable: true,
+            value: 1
+        },
+
+        year: {
+            // value: 123,
+            get: function() {
+                return this._year;
+            },
+            set: function(newValue) {
+                if (newValue > this._year) {
+                    this.edition += newValue - this._year;
+                    this._year = newValue;
+                }
+            }
+        }
+    });
+
+    book.year = 2017;
+    console.log(book.year);
+    console.log(book.edition);
+
+    // 读取属性的特性
+    var descriptor = Object.getOwnPropertyDescriptor(book, "_year");
+    console.log(descriptor.value);
+    console.log(descriptor.configurable);
+    console.log(descriptor.writable);
+
+    var descriptor1 = Object.getOwnPropertyDescriptor(book, "year");
+    console.log(descriptor1.value);
+    console.log(descriptor1.get);
+    console.log(descriptor.get);
+    console.log(descriptor.set);
+    console.log(descriptor1.set);
+
+    //apply(), call() 传参数的区别
+
+    // apply()
+    var value = [1, 23, 1, 23, 1, 2, 3, 4, 3, 5, 477, 66];
+    var max = Math.max.apply(this, value);
+    console.log(max);
+
+    // call()
+    function sayName(name, age) {
+        return console.log("Name: " + this.name + " " + name + ", Age: " + age);
+    }
+
+    // 函数调用对象
+    var o = {
+        name: "Jiang"
+    };
+    sayName.call(o, "Shawn", "27");
+
+    // 构造函数
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.sayAge = function() {
+            return this.age;
+        }
+        this.sayName = function() {
+            return this.name;
+        }
+    }
+
+    // new 构造函数
+    var person1 = new Person("shawn", 27, "男");
+    console.log(person1);
+    console.log(person1.sayAge());
+
+    var person2 = new Person("Jiang", 26, "男");
+    console.log(person1);
+    console.log(person1.sayAge());
+
+    console.log(person1.sayAge() == person2.sayAge());
+    console.log(person1.sayName() == person2.sayName());
+
+
+    // 普通函数
+    Person("Xun", 9, "女");
+    console.log(window.sayAge());
+
+    // 函数调用对象
+    var p2 = {};
+    Person.call(p2, "琪琪", 10, "女");
+    console.log(p2.sayAge());
+    console.log(p2.sayName());
+
+    // 原型模式
+    function Human() {}
+
+    Human.prototype.name = "Jiang";
+    Human.prototype.age = 27;
+    Human.prototype.sex = "男";
+
+    var human1 = new Human();
+    var human2 = new Human();
+
+    console.log(human1.age);
+    console.log(human2.name);
+
+    // 检测原型对象与实例
+    console.log(Human.prototype.isPrototypeOf(human1));
+    console.log(Human.prototype.isPrototypeOf(human2));
+
+    //同名属性
+    console.log(human1.name);
+    human1.name = "Shawn";
+    console.log(human1.name);
+
+    // 删除实例属性
+    delete human1.name;
+    console.log(human1.name);
+
+    // 检测是否为实例属性
+    human1.name = "Shawn";
+    delete human1.name;
+    console.log(human1.hasOwnProperty("name"));
+
+    // in
+    console.log("name" in human1);
+    console.log("ame " in human1);
+
+    // for in 枚举实例属性 和 原型对象属性，不含设置为不可枚举的属性
+    for (var property in human1) {
+        console.log("for in: " + property);
+    }
+
+    // 检测是否为原型属性
+    function hasPrototypeProperty(Object, property) {
+        return !Object.hasOwnProperty(property) && property in Object;
+    }
+    human1.job = "Front-end";
+    console.log(human1.hasOwnProperty("job"));
+    console.log(hasPrototypeProperty(human1, "name"));
+    console.log(hasPrototypeProperty(human1, "job"));
+
+    // 设置原型对象属性的不可枚举，使用for in 无法枚举
+    Object.defineProperty(Human.prototype, "name", {
+        enumerable: false
+    });
+    for (var p in Human.prototype) {
+        console.log("(2)for in: " + p);
+    }
+
+    // 枚举实例属性，不含设置为不可枚举的属性
+    console.log(Object.keys(human1));
+    console.log(Object.keys(Human.prototype));
+
+    // 枚举所有实例属性，含设置为不可枚举的属性
+    console.log(Object.getOwnPropertyNames(human1));
+    console.log(Object.getOwnPropertyNames(Human.prototype));
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

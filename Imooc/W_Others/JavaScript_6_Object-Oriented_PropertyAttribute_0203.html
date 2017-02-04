@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // 原型对象
+    function People() {};
+
+    People.prototype = {
+        constructor: People,
+        name: "Zi",
+        age: 29,
+        job: "player"
+    };
+
+    var p3 = new People();
+    console.log(p3.name);
+    console.log(p3.constructor == People);
+    console.log(p3.constructor == Object);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

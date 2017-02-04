@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // 对象属性类型
+    // 数据属性
+
+    // 修改属性默认特性的方法
+    // 通过此方法设置属性及值，configurable, writable, enumerable默认变为false
+    var person = {};
+    Object.defineProperty(person, "name", {
+        value: "shawn"
+    });
+    console.log(person.name);
+
+    // 修改name值
+    person.name = "Jiang";
+    console.log(person.name); //修改不成功
+
+    // configurable
+    delete person.name;
+    console.log(person.name); //删除不成功
+
+    // 对象内设置属性及值，configurable, writable, enumerable默认为true
+    var human = {
+        name: "Jiang"
+    };
+    console.log(human.name);
+    human.name = "shawn";
+    console.log(human.name); // 修改成功
+
+    Object.defineProperty(human, "name", {
+        writable: false
+    });
+
+    name = "Jiang";
+    console.log(human.name); // 修改不成功
+
+    Object.defineProperty(human, "name", {
+        configurable: false
+    });
+
+    // 不能重新定义configurable属性特性，否则报错
+    /*
+    Object.defineProperty(human, "name", {
+        configurable: true
+    });
+	*/
+    delete human.name;
+    console.log(human.name); // 删除不成功
+
+    // 访问器属性
+    // getter and setter
+    var book = {
+        _year: 2016, //“_”表示：属性只能通过对象方法访问
+        edition: 1
+    };
+
+    Object.defineProperty(book, "year", {
+        get: function() {
+            return this._year;
+        },
+        set: function(newValue) {
+            if (newValue > this._year) {
+                this.edition += newValue - this._year;
+                this._year = newValue;
+            }
+        }
+    });
+
+    book.year = 2017;
+    console.log(book.year);
+    console.log(book.edition);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

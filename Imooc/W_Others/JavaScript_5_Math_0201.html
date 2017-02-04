@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Math</title>
+    <script>
+    // Math Object
+    // max(), min()
+    console.log(Math.max(1, 2, 3, 22, 11, 23, 4, 2, 112, 3));
+    console.log(Math.min(0, 1, 2, 3, 22, 11, 23, 4, 2, 112, 3));
+
+    // max() + Array()
+    var arr = [0, 1, 2, 3, 22, 11, 23, 4, 2, 112, 3];
+    console.log(Math.max.apply(Math, arr));
+    console.log(Math.min.apply(Math, arr));
+
+    // ceil(), floor(), round()
+    console.log(Math.ceil(15.22));
+    console.log(Math.ceil(15.12));
+    console.log(Math.ceil(15.02));
+
+    console.log(Math.floor(12.22));
+    console.log(Math.floor(12.112));
+    console.log(Math.floor(12.02));
+
+    console.log(Math.round(11.23));
+    console.log(Math.round(11.78));
+    console.log(Math.round(11.28));
+
+    // random()
+    console.log(Math.random());
+
+    // 2-10的随机整数
+    console.log(Math.floor(Math.random() * 9 + 2));
+
+    // 产生某个区间的随机整数
+    function randomMath(lower, upper) {
+        var value = upper - lower + 1;
+        return Math.floor(Math.random() * value + lower);
+    }
+    console.log(randomMath(1, 100));
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
