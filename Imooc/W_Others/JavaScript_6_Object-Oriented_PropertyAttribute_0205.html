@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // 寄生构造函数模式：特殊情况下为对象创建构造函数
+    function SpecialArr() {
+        var arr = new Array();
+        arr.push.apply(arr, arguments);
+        arr.joinArr = function() {
+            return arr.join("|");
+        }
+        return arr;
+    }
+
+    var ar = new SpecialArr("blue", "black", "red");
+    console.log(ar.joinArr());
+
+    // 稳妥构造函数模式：只有通过方法才能访问到实例的属性；
+    function Person(name, age, job) {
+        var obj = new Object();
+
+        // 不再给实例赋值
+
+        obj.sayName = function() {
+            return name;
+        }
+        return obj;
+    }
+
+    var p1 = new Person("Shawn", 27, "Soft");
+    console.log(p1.name); // undefined
+    console.log(p1.sayName()); // Shawn
+
+    // 继承 原型链：构造函数A的原型指向构造函数B的原型对象
+    // 函数A
+    function Super() {
+        return this.property = true;
+    }
+    Super.prototype.getSuper = function() {
+        return this.property;
+    }
+
+    // 函数B
+    function Sub() {
+        return this.subproperty = false;
+    }
+    Sub.prototype.getSub = function() {
+        return this.subproperty;
+    }
+
+    // 继承
+    Sub.prototype = new Super();
+
+    var sub = new Sub();
+    console.log(sub.getSuper()); //true
+
+    // 构造函数的原型默认都是Object的实例
+    // instanceof 检测
+    console.log(sub instanceof Object);
+    console.log(sub instanceof Super);
+    console.log(sub instanceof Sub);
+
+    // Object 原型对象的方法检测
+    console.log(Object.prototype.isPrototypeOf(sub));
+    console.log(Super.prototype.isPrototypeOf(sub));
+    console.log(Sub.prototype.isPrototypeOf(sub));
+
+    // 重写：只是在当前的原型对象添加了一个同名方法，调用时，就近原则。
+    Sub.prototype.getSuper = function() {
+        return "重写";
+    }
+    var ins = new Sub();
+    var supe = new Super();
+    console.log(ins.getSuper());
+    console.log(supe.getSuper());
+
+    // 组合继承
+    function SuperType(name) {
+        this.name = name;
+        this.friends = ["琪琪", "轩轩"];
+    }
+
+    SuperType.prototype.sayName = function() {
+        console.log(" 1 " + this.name);
+    }
+
+    // 借用构造函数，负责实例属性
+    function SubType(name, age) {
+        SuperType.call(this, name);
+        this.age = age;
+    }
+
+    // 继承方法
+    // SubType.prototype = new SuperType();
+    // SubType.prototype.constructor = SubType;
+
+    // inheritPrototype(SubType, SuperType);
+
+    SubType.prototype = SuperType.prototype;
+    // SubType.prototype.constructor = SubType;
+
+    var s = new SubType("JShawn", 28);
+    s.sayName();
+    s.friends.push("JSJ");
+    console.log(" 1 " + s.friends);
+
+    var ss = new SubType("ShawnJ", 82);
+    console.log(" 1 " + ss.friends);
+    ss.sayName();
+
+    var sss = new SuperType("Hi");
+
+    console.log(s.constructor == sss.constructor);
+    console.log(s);
+    console.log(sss);
+
+    function inheritPrototype(SubType, SuperType) {
+        var prototype = SuperType.prototype;
+        prototype.constructor = SubType;
+        SubType.prototype = prototype;
+    }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
