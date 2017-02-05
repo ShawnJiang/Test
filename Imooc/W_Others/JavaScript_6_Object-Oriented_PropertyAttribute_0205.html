@@ -94,12 +94,20 @@
     }
 
     // 继承方法
+
+    // 可行
     // SubType.prototype = new SuperType();
     // SubType.prototype.constructor = SubType;
 
-    // inheritPrototype(SubType, SuperType);
+    // 可行
+    inheritPrototype(SubType, SuperType);
 
-    SubType.prototype = SuperType.prototype;
+    // 不行，2个prototype共享了constructor值，原因未知
+    // SubType.prototype = SuperType.prototype;
+    // SubType.prototype.constructor = SubType;
+
+    // 可行
+    // SubType.prototype = object(SuperType.prototype);
     // SubType.prototype.constructor = SubType;
 
     var s = new SubType("JShawn", 28);
@@ -114,14 +122,35 @@
     var sss = new SuperType("Hi");
 
     console.log(s.constructor == sss.constructor);
-    console.log(s);
-    console.log(sss);
+    console.log(s.constructor);
+    console.log(sss.constructor);
 
+    // 子类的原型对象 是 父类原型对象的副本
     function inheritPrototype(SubType, SuperType) {
-        var prototype = SuperType.prototype;
+        var prototype = object(SuperType.prototype);
         prototype.constructor = SubType;
         SubType.prototype = prototype;
     }
+
+    // 返回一个对象，它的原型对象是传入的参数
+    function object(o) {
+        function F() {};
+        F.prototype = o;
+        return new F();
+    }
+
+    function A() {
+        this.name = "A";
+    }
+
+    function B() {
+        this.name = "B";
+    }
+
+    B.prototype = A.prototype;
+    B.prototype.constructor = B;
+    console.log(B.prototype.constructor);
+    console.log(A.prototype.constructor);
     </script>
 </head>
 
