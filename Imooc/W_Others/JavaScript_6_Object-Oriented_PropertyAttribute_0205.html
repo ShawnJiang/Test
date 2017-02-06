@@ -102,7 +102,9 @@
     // 可行
     inheritPrototype(SubType, SuperType);
 
-    // 不行，2个prototype共享了constructor值，原因未知
+    // 不行，2个prototype共享了constructor值，原因未知，目前只能按照书上来做，通过对象传递原型对象。
+    // 此方法是在JS中，称之为浅复制或者浅拷贝，2个名称不同的变量，指向了同1个对象。
+    // 所以用变量修改对象中的内容，另1个变量的内容也会随之变化
     // SubType.prototype = SuperType.prototype;
     // SubType.prototype.constructor = SubType;
 
@@ -127,30 +129,20 @@
 
     // 子类的原型对象 是 父类原型对象的副本
     function inheritPrototype(SubType, SuperType) {
-        var prototype = object(SuperType.prototype);
+        var prototype = Object.create(SuperType.prototype);
         prototype.constructor = SubType;
         SubType.prototype = prototype;
     }
 
     // 返回一个对象，它的原型对象是传入的参数
+    // 使用Object.create()代替
+    /*
     function object(o) {
         function F() {};
         F.prototype = o;
         return new F();
     }
-
-    function A() {
-        this.name = "A";
-    }
-
-    function B() {
-        this.name = "B";
-    }
-
-    B.prototype = A.prototype;
-    B.prototype.constructor = B;
-    console.log(B.prototype.constructor);
-    console.log(A.prototype.constructor);
+    */
     </script>
 </head>
 
