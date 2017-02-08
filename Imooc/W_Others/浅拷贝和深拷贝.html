@@ -19,8 +19,10 @@
     console.log(obj.age); //28
 
     // 浅拷贝
-    var obj2 = shadowCopy(obj);
+    // var obj2 = shadowCopy(obj);
+    var obj2 = Object.create(obj);
 
+    /*
     function shadowCopy(obj) {
         var o = {};
         for (var property in obj) {
@@ -30,6 +32,7 @@
         }
         return o;
     }
+    */
 
     console.log(obj2.age); //33
     obj2.age = 33;

@@ -100,13 +100,21 @@
     // SubType.prototype.constructor = SubType;
 
     // 可行
+    // 原文写法
     inheritPrototype(SubType, SuperType);
 
+    // 为什么constructor的值会保持一致？—— P173
+    // 如果我用下面的写法，2个原型变量的constructor值会保持一致
+    SubType.prototype = SuperType.prototype;
+    SubType.prototype.constructor = SubType;
+
+    var s = new SubType("JShawn", 28);
+    var ss = new SuperType("ShawnJ");
+    console.log(s.constructor); //SubType
+    console.log(ss.constructor); //SubType
     // 不行，2个prototype共享了constructor值，原因未知，目前只能按照书上来做，通过对象传递原型对象。
     // 此方法是在JS中，称之为浅复制或者浅拷贝，2个名称不同的变量，指向了同1个对象。
     // 所以用变量修改对象中的内容，另1个变量的内容也会随之变化
-    // SubType.prototype = SuperType.prototype;
-    // SubType.prototype.constructor = SubType;
 
     // 可行
     // SubType.prototype = object(SuperType.prototype);

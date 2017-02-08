@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // 小括号的作用是什么？—— P178
+    // 命名函数表达式的写法？I Dont Know
+    var v = (function f(num) {
+        if (num <= 1) {
+            return 1;
+        } else {
+            return num * f(num - 1);
+        }
+    });
+
+    var v1 = (2);
+
+    console.log(v1); // 2
+    console.log(v(5)); //120
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
