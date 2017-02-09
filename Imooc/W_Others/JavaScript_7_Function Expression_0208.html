@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // 闭包：有权访问另一个函数作用域的变量的函数
+    function createComparisonFunction(property) {
+
+        return function(obj1, obj2) {
+            var v1 = obj1[property];
+            var v2 = obj2[property];
+            if (v1 < v2) {
+                return -1;
+            } else if (v1 > v2) {
+                return 1;
+            } else {
+                return 0
+            }
+        };
+    }
+
+    // 闭包
+    var value = createComparisonFunction("name");
+
+    var result = value({
+        name: "shawn"
+    }, {
+        name: "jiang"
+    });
+
+    console.log(result);
+
+    // 闭包与变量
+    function createFunction() {
+        var arr = new Array();
+        for (var i = 0; i < 10; i++) {
+            arr[i] = function(sum) {
+                return function() {
+                    return sum;
+                }(i);
+            };
+        }
+        console.log(arr[0]);
+        return arr;
+    }
+    createFunction();
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
