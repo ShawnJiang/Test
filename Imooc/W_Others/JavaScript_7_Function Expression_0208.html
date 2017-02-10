@@ -36,16 +36,45 @@
     function createFunction() {
         var arr = new Array();
         for (var i = 0; i < 10; i++) {
-            arr[i] = function(sum) {
-                return function() {
-                    return sum;
-                }(i);
+            arr[i] = function() {
+                return i;
             };
         }
-        console.log(arr[0]);
         return arr;
     }
-    createFunction();
+    var v1 = createFunction();
+    var v2 = v1[8]();
+    console.log(v2);
+
+    // 方法一：解决变量获取最后一个值的问题
+    function createFunction1() {
+        var arr = new Array();
+        for (var i = 0; i < 10; i++) {
+            arr[i] = function(sum) {
+                // 内嵌一个函数
+                return function() {
+                    return sum;
+                }();
+            }(i);
+        }
+        return arr;
+    }
+
+    var v3 = createFunction1();
+    console.log(v3[5]);
+
+    // 方法二：加()，表示每次执行函数
+    function createFunction3() {
+        var arr = new Array();
+        for (var i = 0; i < 10; i++) {
+            arr[i] = function() {
+                return i;
+            }(); // 加()，表示每次执行函数
+        }
+        return arr;
+    }
+    var v4 = createFunction3();
+    console.log(v4[7]);
     </script>
 </head>
 
