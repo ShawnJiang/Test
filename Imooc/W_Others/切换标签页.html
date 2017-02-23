@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>热爱生命</title>
+    <style>
+    .nav {
+        width: 900px;
+        height: 400px;
+        margin: 0 auto;
+    }
+    
+    #top {
+        height: 50px;
+        width: 900px;
+        position: relative;
+    }
+    
+    #top div {
+        width: 225px;
+        height: 50px;
+        float: left;
+        text-align: center;
+        line-height: 50px;
+    }
+    
+    .co {
+        background-color: #EEEEEE;
+    }
+    
+    .moco {
+        background-color: #AAAAAA;
+    }
+    
+    #foot div {
+        background-color: #AAAAAA;
+        width: 900px;
+        word-wrap: break-word;
+        text-align: center;
+        height: 300px;
+        padding-top: 100px;
+    }
+    
+    .none {
+        display: none;
+    }
+    
+    .block {
+        display: block;
+    }
+    
+    h1,
+    h4 {
+        text-align: center;
+    }
+    </style>
+    <script>
+    window.onload = function() {
+        var top = document.getElementById("top").childNodes;
+        var foot = document.getElementById("foot").childNodes;
+        for (var i = 0; i < top.length; i++) {
+            if (top[i].nodeName == "DIV") {
+                top[i].index = i;
+                top[i].onmouseover = function() {
+                    for (var j = 0; j < top.length; j++) {
+                        top[j].className = "co";
+                        foot[j].className = "none"
+                    }
+                    this.className = 'moco';
+                    foot[this.index].className = "block";
+                };
+            }
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <h1>热爱生命</h1>
+    <h4>汪国真</h4>
+    <div class="nav">
+        <div id="top">
+            <div class="moco">壹</div>
+            <div class="co">贰</div>
+            <div class="co">叁</div>
+            <div class="co">肆</div>
+        </div>
+        <div id="foot">
+            <div class="block">
+                我不去想
+                <br>
+                <br>是否能够成功
+                <br>
+                <br>既然选择了远方
+                <br>
+                <br>便只顾风雨兼程
+            </div>
+            <div class="none">
+                我不去想
+                <br>
+                <br>能否赢得爱情
+                <br>
+                <br>既然钟情于玫瑰
+                <br>
+                <br>就勇敢地吐露真诚
+            </div>
+            <div class="none">
+                我不去想
+                <br>
+                <br>身后会不会袭来寒风冷雨
+                <br>
+                <br>既然目标是地平线
+                <br>
+                <br>留给世界的只能是背影
+            </div>
+            <div class="none">
+                我不去想
+                <br>
+                <br>未来是平坦还是泥泞
+                <br>
+                <br>只要热爱生命
+                <br>
+                <br>一切，都在意料之中
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
