@@ -128,7 +128,7 @@ div{margin:0 auto;}
 }
 .journalism .journalism-lft .journalism-lft-top .some{
 	float: right;
-	margin-top: 14px;
+	/*margin-top: 14px;*/
 }
 .journalism .journalism-lft .zx3{
 	width: 100%;
@@ -232,7 +232,7 @@ div{margin:0 auto;}
 }
 .journalism .journalism-rig .journalism-lft-top .some{
 	float: right;
-	margin-top: 14px;
+	margin-top: -5px;
 }
 .journalism .journalism-rig .times{
 	width: 100%;
