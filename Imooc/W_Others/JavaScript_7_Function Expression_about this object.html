@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    /*
+     *闭包中的this对象
+     * 
+     */
+    var name = "shawn";
+    var object = {
+        name: "jiang",
+        getName: function() {
+            return function() {
+                return this.name; //匿名函数的执行环境具有全局性，this指向windows对象
+            }
+        }
+    };
+    console.log(object.getName()()); //shawn
+
+    var object_other = {
+        name: "Jiang",
+        getName: function() {
+            var that = this;
+            return function() {
+                return that.name;
+            }
+        }
+    };
+    console.log(object_other.getName()());
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
