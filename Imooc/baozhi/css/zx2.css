@@ -150,14 +150,16 @@ div {
 
 .top .top-int-top {
     height: 70px;
-    background: rgba(0, 112, 112, 0.5);
+    background: rgba(0, 112, 112, 0.8);
     position: absolute;
     top: 0;
     left: 50%;
     margin-left: -600px;
     z-index: 10;
 }
-
+.journalism-rig-top{
+	font-size: 17px;
+}
 .top .top-int-top .logo {
     float: left;
     width: 341px;
