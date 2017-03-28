@@ -20,7 +20,7 @@ input {
 }
 
 body {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 li {
@@ -89,15 +89,15 @@ div {
 
 .top {
     width: 100%;
-    height: 500px;
+    height: 320px;
     display: table;
     margin-bottom: 20px;
-    background: url(../img/banner1.jpg) center center no-repeat;
+    background: url(../img/SchoolGate.jpg) center center no-repeat;
     position: relative;
 }
 
 .banner {
-    height: 500px;
+    height: 320px;
     width: 100%;
     position: relative;
 }
@@ -116,7 +116,7 @@ div {
     width: 100%;
     height: 100%;
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 0;
 }
 
@@ -157,9 +157,11 @@ div {
     margin-left: -600px;
     z-index: 10;
 }
-.journalism-rig-top{
-	font-size: 17px;
+
+.journalism-rig-top {
+    font-size: 17px;
 }
+
 .top .top-int-top .logo {
     float: left;
     width: 341px;
@@ -350,7 +352,7 @@ div {
 .journalism .journalism-rig .activity li p {
     float: left;
     line-height: 13px;
-    font-size: 1px;
+    font-size: 13px;
     color: #818181;
 }
 
@@ -622,4 +624,38 @@ div {
 .address .zx-img img {
     float: left;
     margin-left: 22px;
+}
+
+.main {
+    width: 1000px;
+}
+
+.leftlist {
+    width: 200px;
+    float: left;
+}
+
+.leftlist dt {
+    height: 50px;
+    background-color: #007071;
+    text-align: center;
+    line-height: 50px;
+    font-size: 22px;
+    color: #FFF;
+}
+
+.leftlist dd {
+    height: 35px;
+    line-height: 35px;
+}
+
+#triangle-right {
+    margin-top: 12px;
+    margin-left: 28px;
+    float: left;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-left: 6px solid #007071;
+    border-bottom: 5px solid transparent;
 }
