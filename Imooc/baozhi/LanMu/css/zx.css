@@ -91,7 +91,7 @@ div {
     width: 100%;
     height: 320px;
     display: table;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     background: url(../img/SchoolGate.jpg) center center no-repeat;
     position: relative;
 }
@@ -636,26 +636,187 @@ div {
 }
 
 .leftlist dt {
-    height: 50px;
+    height: 45px;
     background-color: #007071;
     text-align: center;
-    line-height: 50px;
-    font-size: 22px;
+    line-height: 45px;
+    font-size: 20px;
     color: #FFF;
 }
 
 .leftlist dd {
-    height: 35px;
-    line-height: 35px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #DDD;
+    margin-left: 0;
+    padding-left: 58px;
+    font-size: 15px;
+}
+
+.leftlist dd:hover {
+    background-color: #EEE;
+    color: #007071;
+    cursor: pointer;
 }
 
 #triangle-right {
-    margin-top: 12px;
-    margin-left: 28px;
+    margin-top: 15px;
+    margin-right: 8px;
+    /* line-height: 40px; */
     float: left;
     width: 0;
     height: 0;
-    border-top: 5px solid transparent;
+    border-top: 4px solid transparent;
     border-left: 6px solid #007071;
-    border-bottom: 5px solid transparent;
+    border-bottom: 4px solid transparent;
+}
+
+.rightlist {
+    width: 780px;
+    float: right;
+    margin-bottom: 25px;
+}
+
+.rightlist dt {
+    height: 45px;
+    line-height: 45px;
+    background-color: #f9f9f9;
+    border: 1px solid #EEE;
+    padding-left: 20px;
+    /* width: 780px; */
+}
+
+#triangle {
+    /*float: left;*/
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-left: 6px solid #007071;
+    border-bottom: 4px solid transparent;
+    margin: 2px 8px;
+}
+
+.lm {
+    border: 1px solid #EEE;
+    margin-top: 20px;
+}
+
+.lm_name {
+    background-color: #f9f9f9;
+    /* margin-top: 20px; */
+    height: 45px;
+    line-height: 45px;
+    margin-left: 0px;
+    padding: 0 20px;
+    border-bottom: 1px solid #EEE;
+}
+
+.lm_name p {
+    float: left;
+    color: #007071;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.lm_name a {
+    float: right;
+}
+
+a:hover {
+    color: #990000;
+}
+
+.lm_title {
+    margin: 0px;
+    padding: 5px 20px 20px;
+    /* padding-bottom: 20px; */
+    background-color: #f9f9f9;
+}
+
+.lm_title p {
+    border-bottom: 1px solid #EEE;
+    padding: 10px 0;
+}
+
+.lm_title span {
+    float: right;
+}
+
+.selected {
+    background-color: #EEE;
+    color: #007071;
+}
+
+.page {
+    height: 50px;
+    margin-top: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #EEE;
+    line-height: 50px;
+    padding-left: 85px;
+    /*text-align: center;*/
+}
+
+.page button {
+    padding: 5px 10px;
+    background: #EEE;
+    border: none;
+}
+
+.page p {
+    float: left;
+    margin-right: 10px;
+    /* margin-left: 20px; */
+    color: #AAA;
+}
+
+.page span {
+    color: #AAA;
+}
+
+.page input {
+    width: 30px;
+}
+
+.nr {
+    /* width: 780px; */
+    background-color: #f9f9f9;
+    padding: 10px 20px 10px;
+    text-align: center;
+    margin-top: 15px;
+    border: 1px solid #EEE;
+}
+
+.nr p {
+    text-align: left;
+    text-indent: 2em;
+    margin: 10px 0 10px;
+    line-height: 160%;
+    font-size: 15px;
+}
+
+#writer {
+    text-align: center;
+    text-indent: 0em;
+    color: #999;
+}
+
+.prenext {
+    margin-top: 15px;
+    padding: 20px;
+    /* width: 780px; */
+    height: 20px;
+    line-height: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #EEE;
+}
+
+.prenext span:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.pnleft {
+    float: right;
 }
