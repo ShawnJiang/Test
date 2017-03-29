@@ -1,5 +1,6 @@
 #Review
 [test](#1)
+[test2](#2)
 
 [index01_add_del_info](http://shawnjiang.github.io/WORKOUT/Imooc/index01_add_del_info.html)
 
@@ -82,3 +83,4 @@
 
 
 <h3 id="1">Test</h3>
+<h3 id="2">Test</h3>
