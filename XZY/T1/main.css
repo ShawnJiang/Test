@@ -1,0 +1,5 @@
+.main{width: 100%;max-width: 800px;margin: 0 auto;}
+.main_ul{list-style: none;padding: 0 10px;overflow: hidden;}
+.main_li{width: 31.3333333%;height: 100px;background-color: #B6B6B6;float: left;margin: 5px 1%;border-radius: 5px;}
+.main_b1,.main_b2{width: 80%; margin: 0 auto;}
+button{width: 100%;margin: 10px auto;height: 50px;}
